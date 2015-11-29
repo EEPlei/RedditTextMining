@@ -66,7 +66,9 @@ MapReduce <- function(file){
     reduce   = user_reduce,
     input    = rhfmt(file, type = "text")
   )
-  counts = data.frame(key = sapply(user,get_val,i=1),value = sapply(user,get_val,i=2), stringsAsFactors=FALSE)
+  counts = data.frame(key = sapply(user,get_val,i=1),
+                      value = sapply(user,get_val,i=2), 
+                      stringsAsFactors=FALSE)
   counts
 }
 
@@ -91,4 +93,5 @@ monthly_subreddits <- lapply(files,MapReduce)
 data <- monthly_subreddits[[5]]
 May <- data[order(data$value,decreasing = TRUE),]
 save(May,file = "May.Rdata")
+
 
