@@ -18,55 +18,56 @@ if (!("Rhipe" %in% installed.packages()))
   install.packages("/data/hadoop/rhipe/Rhipe_0.75.1.6_hadoop-2.tar.gz", repos=NULL)
 }
 
-library(Rhipe)
-rhinit()
+
 
 ## Uncomment following lines if you need non-base packages
 rhoptions(zips = '/R/R.Pkg.tar.gz')
 rhoptions(runner = 'sh ./R.Pkg/library/Rhipe/bin/RhipeMapReduce.sh')
 
+
+library(Rhipe)
+rhinit()
+
 ### put a file to HDFS so we can use it
 #rhput("/data/Shakespeare/hamlet.txt","/data/")
 
 #rhls("/data")
+user_reduce = expression(
+  pre = {
+    total = 0
+  },
+  reduce = {
+    total = total + sum(unlist(reduce.values))
+  },
+  post = {
+    rhcollect(reduce.key, total)
+  }
+)
 
-MapReduce <- function(file){
-  user_reduce = expression(
-    pre = {
-      total = 0
-    },
-    reduce = {
-      total = total + sum(unlist(reduce.values))
-    },
-    post = {
-      rhcollect(reduce.key, total)
+user_map = expression({
+  suppressMessages(library(jsonlite))
+  
+  lapply(
+    seq_along(map.keys), 
+    function(r) 
+    {
+      key = fromJSON(map.values[[r]])$subreddit
+      value = 1
+      rhcollect(key,value)
     }
   )
-  
-  user_map = expression({
-    suppressMessages(library(jsonlite))
-    
-    lapply(
-      seq_along(map.keys), 
-      function(r) 
-      {
-        key = fromJSON(map.values[[r]])$subreddit
-        value = 1
-        rhcollect(key,value)
-      }
-    )
-  })
- 
+})
+
+get_val = function(x,i) x[[i]]
+
+MapReduce <- function(file){
   user = rhwatch(
     map      = user_map,
     reduce   = user_reduce,
     input    = rhfmt(file, type = "text")
   )
-  
-  get_val = function(x,i) x[[i]]
-  
   counts = data.frame(key = sapply(user,get_val,i=1),value = sapply(user,get_val,i=2), stringsAsFactors=FALSE)
-  
+  counts
 }
 
 files <- c(
@@ -78,3 +79,16 @@ files <- c(
   )
 
 monthly_subreddits <- lapply(files,MapReduce)
+# 
+# 
+# user = rhwatch(
+#   map      = user_map,
+#   reduce   = user_reduce,
+#   input    = rhfmt("/data/RC_2015-01.json", type = "text")
+# )
+
+
+data <- monthly_subreddits[[5]]
+May <- data[order(data$value,decreasing = TRUE),]
+save(May,file = "May.Rdata")
+

@@ -1,148 +1,97 @@
-2015-11-27 14:50:22,300 WARN  [main][org.apache.hadoop.util.NativeCodeLoader] Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
-2015-11-27 14:50:22,445 INFO  [main][org.apache.hadoop.yarn.client.RMProxy] Connecting to ResourceManager at /0.0.0.0:8032
-2015-11-27 15:04:06,617 INFO  [main][org.apache.hadoop.conf.Configuration.deprecation] fs.default.name is deprecated. Instead, use fs.defaultFS
-2015-11-27 15:04:08,928 INFO  [main][org.apache.hadoop.conf.Configuration.deprecation] mapred.output.compress is deprecated. Instead, use mapreduce.output.fileoutputformat.compress
-2015-11-27 15:04:08,941 INFO  [main][org.apache.hadoop.conf.Configuration.deprecation] mapred.job.reuse.jvm.num.tasks is deprecated. Instead, use mapreduce.job.jvm.numtasks
-2015-11-27 15:04:08,943 INFO  [main][org.apache.hadoop.conf.Configuration.deprecation] mapred.compress.map.output is deprecated. Instead, use mapreduce.map.output.compress
-2015-11-27 15:04:08,946 INFO  [main][org.godhuli.rhipe.RHMR] Adding to cache file:/tmp/rhipe-temp-params-93c58e3a9e77499f39f8d67e3e908126#rhipe-temp-params-93c58e3a9e77499f39f8d67e3e908126
-2015-11-27 15:04:08,975 DEBUG [main][org.godhuli.rhipe.RHMR] /tmp/rhipe-temp-ab0163cd802ceb2fe14f8c5748d15458
-2015-11-27 15:04:09,124 INFO  [main][org.apache.hadoop.yarn.client.RMProxy] Connecting to ResourceManager at /0.0.0.0:8032
-2015-11-27 15:04:09,816 INFO  [main][org.apache.hadoop.mapreduce.lib.input.FileInputFormat] Total input paths to process : 1
-2015-11-27 15:04:10,123 INFO  [main][org.apache.hadoop.mapreduce.JobSubmitter] number of splits:1
-2015-11-27 15:04:10,981 INFO  [main][org.apache.hadoop.mapreduce.JobSubmitter] Submitting tokens for job: job_1448487937805_0030
-2015-11-27 15:04:11,685 INFO  [main][org.apache.hadoop.yarn.client.api.impl.YarnClientImpl] Submitted application application_1448487937805_0030
-2015-11-27 15:04:11,829 INFO  [main][org.apache.hadoop.mapreduce.Job] The url to track the job: http://saxon.stat.duke.edu:8088/proxy/application_1448487937805_0030/
-2015-11-27 15:14:41,804 WARN  [main][org.apache.hadoop.util.NativeCodeLoader] Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
-2015-11-27 15:14:42,279 INFO  [main][org.apache.hadoop.yarn.client.RMProxy] Connecting to ResourceManager at /0.0.0.0:8032
-2015-11-27 15:15:54,802 INFO  [main][org.apache.hadoop.conf.Configuration.deprecation] fs.default.name is deprecated. Instead, use fs.defaultFS
-2015-11-27 15:17:13,110 INFO  [main][org.apache.hadoop.conf.Configuration.deprecation] mapred.output.compress is deprecated. Instead, use mapreduce.output.fileoutputformat.compress
-2015-11-27 15:17:13,112 INFO  [main][org.apache.hadoop.conf.Configuration.deprecation] mapred.job.reuse.jvm.num.tasks is deprecated. Instead, use mapreduce.job.jvm.numtasks
-2015-11-27 15:17:13,113 INFO  [main][org.apache.hadoop.conf.Configuration.deprecation] mapred.compress.map.output is deprecated. Instead, use mapreduce.map.output.compress
-2015-11-27 15:17:13,115 INFO  [main][org.godhuli.rhipe.RHMR] Adding to cache file:/tmp/rhipe-temp-params-3fb0056797d7d0a981c99f190b4e8fa9#rhipe-temp-params-3fb0056797d7d0a981c99f190b4e8fa9
-2015-11-27 15:17:13,116 INFO  [main][org.godhuli.rhipe.RHMR] Adding to cache archive:/R/R.Pkg.tar.gz#R.Pkg
-2015-11-27 15:17:13,123 DEBUG [main][org.godhuli.rhipe.RHMR] /tmp/rhipe-temp-ca61097b4cf8b3ad7a7985d525b819ae
-2015-11-27 15:17:13,163 INFO  [main][org.apache.hadoop.yarn.client.RMProxy] Connecting to ResourceManager at /0.0.0.0:8032
-2015-11-27 15:17:13,381 INFO  [main][org.apache.hadoop.mapreduce.lib.input.FileInputFormat] Total input paths to process : 1
-2015-11-27 15:17:13,493 INFO  [main][org.apache.hadoop.mapreduce.JobSubmitter] number of splits:1
-2015-11-27 15:17:13,757 INFO  [main][org.apache.hadoop.mapreduce.JobSubmitter] Submitting tokens for job: job_1448655399254_0002
-2015-11-27 15:17:13,997 INFO  [main][org.apache.hadoop.yarn.client.api.impl.YarnClientImpl] Submitted application application_1448655399254_0002
-2015-11-27 15:17:14,046 INFO  [main][org.apache.hadoop.mapreduce.Job] The url to track the job: http://saxon.stat.duke.edu:8088/proxy/application_1448655399254_0002/
-2015-11-27 15:20:43,824 INFO  [main][org.apache.hadoop.conf.Configuration.deprecation] fs.default.name is deprecated. Instead, use fs.defaultFS
-2015-11-27 15:20:44,708 INFO  [main][org.godhuli.rhipe.RHMR] Adding to cache file:/tmp/rhipe-temp-params-dad4ecd1eae73ce79589963dda7fbce9#rhipe-temp-params-dad4ecd1eae73ce79589963dda7fbce9
-2015-11-27 15:20:44,708 INFO  [main][org.godhuli.rhipe.RHMR] Adding to cache archive:/R/R.Pkg.tar.gz#R.Pkg
-2015-11-27 15:20:44,709 DEBUG [main][org.godhuli.rhipe.RHMR] /tmp/rhipe-temp-50b25797a66a791fd6e6d17c15a6f112
-2015-11-27 15:20:44,753 INFO  [main][org.apache.hadoop.yarn.client.RMProxy] Connecting to ResourceManager at /0.0.0.0:8032
-2015-11-27 15:20:45,041 INFO  [main][org.apache.hadoop.mapreduce.lib.input.FileInputFormat] Total input paths to process : 1
-2015-11-27 15:20:45,484 INFO  [main][org.apache.hadoop.mapreduce.JobSubmitter] number of splits:236
-2015-11-27 15:20:45,660 INFO  [main][org.apache.hadoop.mapreduce.JobSubmitter] Submitting tokens for job: job_1448655399254_0005
-2015-11-27 15:20:45,699 INFO  [main][org.apache.hadoop.yarn.client.api.impl.YarnClientImpl] Submitted application application_1448655399254_0005
-2015-11-27 15:20:45,704 INFO  [main][org.apache.hadoop.mapreduce.Job] The url to track the job: http://saxon.stat.duke.edu:8088/proxy/application_1448655399254_0005/
-2015-11-27 15:22:53,625 INFO  [main][org.apache.hadoop.conf.Configuration.deprecation] fs.default.name is deprecated. Instead, use fs.defaultFS
-2015-11-27 15:35:49,553 INFO  [main][org.godhuli.rhipe.RHMR] Adding to cache file:/tmp/rhipe-temp-params-61a78995e08b8dc473aa2d128d607a52#rhipe-temp-params-61a78995e08b8dc473aa2d128d607a52
-2015-11-27 15:35:49,553 INFO  [main][org.godhuli.rhipe.RHMR] Adding to cache archive:/R/R.Pkg.tar.gz#R.Pkg
-2015-11-27 15:35:49,555 DEBUG [main][org.godhuli.rhipe.RHMR] /tmp/rhipe-temp-bf3963d8bfc966c88dc18c7ef5ffb95f
-2015-11-27 15:35:49,625 INFO  [main][org.apache.hadoop.yarn.client.RMProxy] Connecting to ResourceManager at /0.0.0.0:8032
-2015-11-27 15:35:49,779 INFO  [main][org.apache.hadoop.mapreduce.lib.input.FileInputFormat] Total input paths to process : 1
-2015-11-27 15:35:49,968 INFO  [main][org.apache.hadoop.mapreduce.JobSubmitter] number of splits:1
-2015-11-27 15:35:50,089 INFO  [main][org.apache.hadoop.mapreduce.JobSubmitter] Submitting tokens for job: job_1448656267630_0002
-2015-11-27 15:35:50,127 INFO  [main][org.apache.hadoop.yarn.client.api.impl.YarnClientImpl] Submitted application application_1448656267630_0002
-2015-11-27 15:35:50,134 INFO  [main][org.apache.hadoop.mapreduce.Job] The url to track the job: http://saxon.stat.duke.edu:8088/proxy/application_1448656267630_0002/
-2015-11-27 15:36:52,461 INFO  [main][org.apache.hadoop.mapred.ClientServiceDelegate] Could not get Job info from RM for job job_1448656267630_0002. Redirecting to job history server.
-2015-11-27 15:36:53,465 INFO  [main][org.apache.hadoop.ipc.Client] Retrying connect to server: 0.0.0.0/0.0.0.0:10020. Already tried 0 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
-2015-11-27 15:36:54,466 INFO  [main][org.apache.hadoop.ipc.Client] Retrying connect to server: 0.0.0.0/0.0.0.0:10020. Already tried 1 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
-2015-11-27 15:36:55,467 INFO  [main][org.apache.hadoop.ipc.Client] Retrying connect to server: 0.0.0.0/0.0.0.0:10020. Already tried 2 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
-2015-11-27 15:36:56,467 INFO  [main][org.apache.hadoop.ipc.Client] Retrying connect to server: 0.0.0.0/0.0.0.0:10020. Already tried 3 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
-2015-11-27 15:36:57,468 INFO  [main][org.apache.hadoop.ipc.Client] Retrying connect to server: 0.0.0.0/0.0.0.0:10020. Already tried 4 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
-2015-11-27 15:36:58,471 INFO  [main][org.apache.hadoop.ipc.Client] Retrying connect to server: 0.0.0.0/0.0.0.0:10020. Already tried 5 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
-2015-11-27 15:36:59,472 INFO  [main][org.apache.hadoop.ipc.Client] Retrying connect to server: 0.0.0.0/0.0.0.0:10020. Already tried 6 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
-2015-11-27 15:37:00,473 INFO  [main][org.apache.hadoop.ipc.Client] Retrying connect to server: 0.0.0.0/0.0.0.0:10020. Already tried 7 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
-2015-11-27 15:37:01,473 INFO  [main][org.apache.hadoop.ipc.Client] Retrying connect to server: 0.0.0.0/0.0.0.0:10020. Already tried 8 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
-2015-11-27 15:37:02,474 INFO  [main][org.apache.hadoop.ipc.Client] Retrying connect to server: 0.0.0.0/0.0.0.0:10020. Already tried 9 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
-2015-11-27 15:37:02,599 INFO  [main][org.apache.hadoop.mapred.ClientServiceDelegate] Could not get Job info from RM for job job_1448656267630_0002. Redirecting to job history server.
-2015-11-27 15:37:03,600 INFO  [main][org.apache.hadoop.ipc.Client] Retrying connect to server: 0.0.0.0/0.0.0.0:10020. Already tried 0 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
-2015-11-27 15:37:04,601 INFO  [main][org.apache.hadoop.ipc.Client] Retrying connect to server: 0.0.0.0/0.0.0.0:10020. Already tried 1 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
-2015-11-27 15:37:05,602 INFO  [main][org.apache.hadoop.ipc.Client] Retrying connect to server: 0.0.0.0/0.0.0.0:10020. Already tried 2 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
-2015-11-27 15:37:06,603 INFO  [main][org.apache.hadoop.ipc.Client] Retrying connect to server: 0.0.0.0/0.0.0.0:10020. Already tried 3 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
-2015-11-27 15:37:07,604 INFO  [main][org.apache.hadoop.ipc.Client] Retrying connect to server: 0.0.0.0/0.0.0.0:10020. Already tried 4 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
-2015-11-27 15:37:08,606 INFO  [main][org.apache.hadoop.ipc.Client] Retrying connect to server: 0.0.0.0/0.0.0.0:10020. Already tried 5 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
-2015-11-27 15:37:09,607 INFO  [main][org.apache.hadoop.ipc.Client] Retrying connect to server: 0.0.0.0/0.0.0.0:10020. Already tried 6 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
-2015-11-27 15:37:10,608 INFO  [main][org.apache.hadoop.ipc.Client] Retrying connect to server: 0.0.0.0/0.0.0.0:10020. Already tried 7 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
-2015-11-27 15:37:11,608 INFO  [main][org.apache.hadoop.ipc.Client] Retrying connect to server: 0.0.0.0/0.0.0.0:10020. Already tried 8 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
-2015-11-27 15:37:12,609 INFO  [main][org.apache.hadoop.ipc.Client] Retrying connect to server: 0.0.0.0/0.0.0.0:10020. Already tried 9 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
-2015-11-27 15:37:12,734 INFO  [main][org.apache.hadoop.mapred.ClientServiceDelegate] Could not get Job info from RM for job job_1448656267630_0002. Redirecting to job history server.
-2015-11-27 15:37:13,735 INFO  [main][org.apache.hadoop.ipc.Client] Retrying connect to server: 0.0.0.0/0.0.0.0:10020. Already tried 0 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
-2015-11-27 15:37:14,735 INFO  [main][org.apache.hadoop.ipc.Client] Retrying connect to server: 0.0.0.0/0.0.0.0:10020. Already tried 1 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
-2015-11-27 15:37:15,736 INFO  [main][org.apache.hadoop.ipc.Client] Retrying connect to server: 0.0.0.0/0.0.0.0:10020. Already tried 2 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
-2015-11-27 15:37:16,737 INFO  [main][org.apache.hadoop.ipc.Client] Retrying connect to server: 0.0.0.0/0.0.0.0:10020. Already tried 3 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
-2015-11-27 15:37:17,738 INFO  [main][org.apache.hadoop.ipc.Client] Retrying connect to server: 0.0.0.0/0.0.0.0:10020. Already tried 4 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
-2015-11-27 15:37:18,740 INFO  [main][org.apache.hadoop.ipc.Client] Retrying connect to server: 0.0.0.0/0.0.0.0:10020. Already tried 5 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
-2015-11-27 15:37:19,741 INFO  [main][org.apache.hadoop.ipc.Client] Retrying connect to server: 0.0.0.0/0.0.0.0:10020. Already tried 6 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
-2015-11-27 15:37:20,742 INFO  [main][org.apache.hadoop.ipc.Client] Retrying connect to server: 0.0.0.0/0.0.0.0:10020. Already tried 7 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
-2015-11-27 15:37:21,743 INFO  [main][org.apache.hadoop.ipc.Client] Retrying connect to server: 0.0.0.0/0.0.0.0:10020. Already tried 8 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
-2015-11-27 15:37:22,744 INFO  [main][org.apache.hadoop.ipc.Client] Retrying connect to server: 0.0.0.0/0.0.0.0:10020. Already tried 9 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
-2015-11-27 16:10:13,383 INFO  [main][org.apache.hadoop.conf.Configuration.deprecation] fs.default.name is deprecated. Instead, use fs.defaultFS
-2015-11-27 16:10:13,684 INFO  [main][org.godhuli.rhipe.RHMR] Adding to cache file:/tmp/rhipe-temp-params-bed7074d466eb4545e71607e240461e0#rhipe-temp-params-bed7074d466eb4545e71607e240461e0
-2015-11-27 16:10:13,685 INFO  [main][org.godhuli.rhipe.RHMR] Adding to cache archive:/R/R.Pkg.tar.gz#R.Pkg
-2015-11-27 16:10:13,687 DEBUG [main][org.godhuli.rhipe.RHMR] /tmp/rhipe-temp-43ab2cbac752b3044971fbc837507d23
-2015-11-27 16:10:13,718 INFO  [main][org.apache.hadoop.yarn.client.RMProxy] Connecting to ResourceManager at /0.0.0.0:8032
-2015-11-27 16:10:14,192 INFO  [main][org.apache.hadoop.mapreduce.lib.input.FileInputFormat] Total input paths to process : 1
-2015-11-27 16:10:14,249 INFO  [main][org.apache.hadoop.mapreduce.JobSubmitter] number of splits:1
-2015-11-27 16:10:14,282 INFO  [main][org.apache.hadoop.mapreduce.JobSubmitter] Submitting tokens for job: job_1448657806892_0004
-2015-11-27 16:10:14,308 INFO  [main][org.apache.hadoop.yarn.client.api.impl.YarnClientImpl] Submitted application application_1448657806892_0004
-2015-11-27 16:10:14,313 INFO  [main][org.apache.hadoop.mapreduce.Job] The url to track the job: http://saxon.stat.duke.edu:8088/proxy/application_1448657806892_0004/
-2015-11-27 16:10:36,153 INFO  [main][org.apache.hadoop.conf.Configuration.deprecation] fs.default.name is deprecated. Instead, use fs.defaultFS
-2015-11-27 16:10:36,231 INFO  [main][org.apache.hadoop.io.compress.CodecPool] Got brand-new decompressor [.deflate]
-2015-11-27 16:11:09,024 INFO  [main][org.godhuli.rhipe.RHMR] Adding to cache file:/tmp/rhipe-temp-params-c48beeb890e57849b52bd037054000ec#rhipe-temp-params-c48beeb890e57849b52bd037054000ec
-2015-11-27 16:11:09,025 INFO  [main][org.godhuli.rhipe.RHMR] Adding to cache archive:/R/R.Pkg.tar.gz#R.Pkg
-2015-11-27 16:11:09,026 DEBUG [main][org.godhuli.rhipe.RHMR] /tmp/rhipe-temp-791dbe9c72e5cd27b331f6a74bc3d1ba
-2015-11-27 16:11:09,054 INFO  [main][org.apache.hadoop.yarn.client.RMProxy] Connecting to ResourceManager at /0.0.0.0:8032
-2015-11-27 16:11:09,152 INFO  [main][org.apache.hadoop.mapreduce.lib.input.FileInputFormat] Total input paths to process : 1
-2015-11-27 16:11:09,239 INFO  [main][org.apache.hadoop.mapreduce.JobSubmitter] number of splits:1
-2015-11-27 16:11:09,345 INFO  [main][org.apache.hadoop.mapreduce.JobSubmitter] Submitting tokens for job: job_1448657806892_0006
-2015-11-27 16:11:09,576 INFO  [main][org.apache.hadoop.yarn.client.api.impl.YarnClientImpl] Submitted application application_1448657806892_0006
-2015-11-27 16:11:09,581 INFO  [main][org.apache.hadoop.mapreduce.Job] The url to track the job: http://saxon.stat.duke.edu:8088/proxy/application_1448657806892_0006/
-2015-11-27 16:36:31,851 WARN  [main][org.apache.hadoop.util.NativeCodeLoader] Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
-2015-11-27 16:36:32,278 INFO  [main][org.apache.hadoop.yarn.client.RMProxy] Connecting to ResourceManager at /0.0.0.0:8032
-2015-11-27 16:40:47,116 INFO  [main][org.apache.hadoop.conf.Configuration.deprecation] fs.default.name is deprecated. Instead, use fs.defaultFS
-2015-11-27 16:40:48,117 INFO  [main][org.apache.hadoop.conf.Configuration.deprecation] mapred.output.compress is deprecated. Instead, use mapreduce.output.fileoutputformat.compress
-2015-11-27 16:40:48,122 INFO  [main][org.apache.hadoop.conf.Configuration.deprecation] mapred.job.reuse.jvm.num.tasks is deprecated. Instead, use mapreduce.job.jvm.numtasks
-2015-11-27 16:40:48,124 INFO  [main][org.apache.hadoop.conf.Configuration.deprecation] mapred.compress.map.output is deprecated. Instead, use mapreduce.map.output.compress
-2015-11-27 16:40:48,126 INFO  [main][org.godhuli.rhipe.RHMR] Adding to cache file:/tmp/rhipe-temp-params-07337863f1644370d4a81b7a8aac321e#rhipe-temp-params-07337863f1644370d4a81b7a8aac321e
-2015-11-27 16:40:48,137 DEBUG [main][org.godhuli.rhipe.RHMR] /tmp/rhipe-temp-8432493f83aabb42150ad16a3736bb1b
-2015-11-27 16:40:48,196 INFO  [main][org.apache.hadoop.yarn.client.RMProxy] Connecting to ResourceManager at /0.0.0.0:8032
-2015-11-27 16:40:50,025 INFO  [main][org.apache.hadoop.mapreduce.lib.input.FileInputFormat] Total input paths to process : 1
-2015-11-27 16:40:50,137 INFO  [main][org.apache.hadoop.mapreduce.JobSubmitter] number of splits:1
-2015-11-27 16:40:50,499 INFO  [main][org.apache.hadoop.mapreduce.JobSubmitter] Submitting tokens for job: job_1448657806892_0009
-2015-11-27 16:40:50,822 INFO  [main][org.apache.hadoop.yarn.client.api.impl.YarnClientImpl] Submitted application application_1448657806892_0009
-2015-11-27 16:40:50,885 INFO  [main][org.apache.hadoop.mapreduce.Job] The url to track the job: http://saxon.stat.duke.edu:8088/proxy/application_1448657806892_0009/
-2015-11-27 16:57:40,592 INFO  [main][org.apache.hadoop.conf.Configuration.deprecation] fs.default.name is deprecated. Instead, use fs.defaultFS
-2015-11-27 16:57:40,934 INFO  [main][org.godhuli.rhipe.RHMR] Adding to cache file:/tmp/rhipe-temp-params-23363dd2fedf712a1d9d33dd124450e0#rhipe-temp-params-23363dd2fedf712a1d9d33dd124450e0
-2015-11-27 16:57:40,937 DEBUG [main][org.godhuli.rhipe.RHMR] /tmp/rhipe-temp-c5974c28295e8c899c7356eab6ed368a
-2015-11-27 16:57:40,977 INFO  [main][org.apache.hadoop.yarn.client.RMProxy] Connecting to ResourceManager at /0.0.0.0:8032
-2015-11-27 16:57:41,062 INFO  [main][org.apache.hadoop.mapreduce.lib.input.FileInputFormat] Total input paths to process : 1
-2015-11-27 16:57:41,126 INFO  [main][org.apache.hadoop.mapreduce.JobSubmitter] number of splits:1
-2015-11-27 16:57:41,187 INFO  [main][org.apache.hadoop.mapreduce.JobSubmitter] Submitting tokens for job: job_1448657806892_0011
-2015-11-27 16:57:41,210 INFO  [main][org.apache.hadoop.yarn.client.api.impl.YarnClientImpl] Submitted application application_1448657806892_0011
-2015-11-27 16:57:41,214 INFO  [main][org.apache.hadoop.mapreduce.Job] The url to track the job: http://saxon.stat.duke.edu:8088/proxy/application_1448657806892_0011/
-2015-11-27 18:18:36,429 INFO  [main][org.apache.hadoop.fs.TrashPolicyDefault] Namenode trash configuration: Deletion interval = 0 minutes, Emptier interval = 0 minutes.
-2015-11-27 18:18:36,448 INFO  [main][org.godhuli.rhipe.FileUtils] Deleted hdfs://localhost:9000/tmp/rhipe-temp-c5974c28295e8c899c7356eab6ed368a
-2015-11-27 18:29:39,402 INFO  [main][org.apache.hadoop.conf.Configuration.deprecation] fs.default.name is deprecated. Instead, use fs.defaultFS
-2015-11-27 18:29:39,785 INFO  [main][org.godhuli.rhipe.RHMR] Adding to cache file:/tmp/rhipe-temp-params-b074f6b09428150efdf322041d8a5f1b#rhipe-temp-params-b074f6b09428150efdf322041d8a5f1b
-2015-11-27 18:29:39,787 DEBUG [main][org.godhuli.rhipe.RHMR] /tmp/rhipe-temp-bdbc668080b3c0569e99687bae4a909b
-2015-11-27 18:29:39,814 INFO  [main][org.apache.hadoop.yarn.client.RMProxy] Connecting to ResourceManager at /0.0.0.0:8032
-2015-11-27 18:29:40,285 INFO  [main][org.apache.hadoop.mapreduce.lib.input.FileInputFormat] Total input paths to process : 1
-2015-11-27 18:29:40,342 INFO  [main][org.apache.hadoop.mapreduce.JobSubmitter] number of splits:1
-2015-11-27 18:29:40,384 INFO  [main][org.apache.hadoop.mapreduce.JobSubmitter] Submitting tokens for job: job_1448657806892_0015
-2015-11-27 18:29:40,402 INFO  [main][org.apache.hadoop.yarn.client.api.impl.YarnClientImpl] Submitted application application_1448657806892_0015
-2015-11-27 18:29:40,405 INFO  [main][org.apache.hadoop.mapreduce.Job] The url to track the job: http://saxon.stat.duke.edu:8088/proxy/application_1448657806892_0015/
-2015-11-27 19:32:43,954 INFO  [main][org.apache.hadoop.fs.TrashPolicyDefault] Namenode trash configuration: Deletion interval = 0 minutes, Emptier interval = 0 minutes.
-2015-11-27 19:32:43,955 INFO  [main][org.godhuli.rhipe.FileUtils] Deleted hdfs://localhost:9000/tmp/rhipe-temp-bdbc668080b3c0569e99687bae4a909b
-2015-11-27 20:00:48,155 INFO  [main][org.apache.hadoop.conf.Configuration.deprecation] fs.default.name is deprecated. Instead, use fs.defaultFS
-2015-11-27 20:00:48,495 INFO  [main][org.godhuli.rhipe.RHMR] Adding to cache file:/tmp/rhipe-temp-params-2e77a5e7116436652707fbdd1c1e6386#rhipe-temp-params-2e77a5e7116436652707fbdd1c1e6386
-2015-11-27 20:00:48,498 DEBUG [main][org.godhuli.rhipe.RHMR] /tmp/rhipe-temp-16aef6e5062bc1a26a65ea8b38ed3cab
-2015-11-27 20:00:48,527 INFO  [main][org.apache.hadoop.yarn.client.RMProxy] Connecting to ResourceManager at /0.0.0.0:8032
-2015-11-27 20:00:48,980 INFO  [main][org.apache.hadoop.mapreduce.lib.input.FileInputFormat] Total input paths to process : 1
-2015-11-27 20:00:49,034 INFO  [main][org.apache.hadoop.mapreduce.JobSubmitter] number of splits:1
-2015-11-27 20:00:49,070 INFO  [main][org.apache.hadoop.mapreduce.JobSubmitter] Submitting tokens for job: job_1448657806892_0019
-2015-11-27 20:00:49,085 INFO  [main][org.apache.hadoop.yarn.client.api.impl.YarnClientImpl] Submitted application application_1448657806892_0019
-2015-11-27 20:00:49,087 INFO  [main][org.apache.hadoop.mapreduce.Job] The url to track the job: http://saxon.stat.duke.edu:8088/proxy/application_1448657806892_0019/
+2015-11-28 14:15:46,145 WARN  [main][org.apache.hadoop.util.NativeCodeLoader] Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2015-11-28 14:15:46,320 INFO  [main][org.apache.hadoop.yarn.client.RMProxy] Connecting to ResourceManager at /0.0.0.0:8032
+2015-11-28 14:16:03,087 INFO  [main][org.apache.hadoop.conf.Configuration.deprecation] fs.default.name is deprecated. Instead, use fs.defaultFS
+2015-11-28 14:16:03,941 INFO  [main][org.apache.hadoop.conf.Configuration.deprecation] mapred.output.compress is deprecated. Instead, use mapreduce.output.fileoutputformat.compress
+2015-11-28 14:16:03,943 INFO  [main][org.apache.hadoop.conf.Configuration.deprecation] mapred.job.reuse.jvm.num.tasks is deprecated. Instead, use mapreduce.job.jvm.numtasks
+2015-11-28 14:16:03,944 INFO  [main][org.apache.hadoop.conf.Configuration.deprecation] mapred.compress.map.output is deprecated. Instead, use mapreduce.map.output.compress
+2015-11-28 14:16:03,946 INFO  [main][org.godhuli.rhipe.RHMR] Adding to cache file:/tmp/rhipe-temp-params-ae921cd79a4eb5ea8494740a209c273e#rhipe-temp-params-ae921cd79a4eb5ea8494740a209c273e
+2015-11-28 14:16:03,955 DEBUG [main][org.godhuli.rhipe.RHMR] /tmp/rhipe-temp-c39622bba0b43299b9cb155c1d06a227
+2015-11-28 14:16:03,996 INFO  [main][org.apache.hadoop.yarn.client.RMProxy] Connecting to ResourceManager at /0.0.0.0:8032
+2015-11-28 14:16:04,286 INFO  [main][org.apache.hadoop.mapreduce.lib.input.FileInputFormat] Total input paths to process : 1
+2015-11-28 14:16:04,432 INFO  [main][org.apache.hadoop.mapreduce.JobSubmitter] number of splits:236
+2015-11-28 14:16:04,695 INFO  [main][org.apache.hadoop.mapreduce.JobSubmitter] Submitting tokens for job: job_1448657806892_0039
+2015-11-28 14:16:04,922 INFO  [main][org.apache.hadoop.yarn.client.api.impl.YarnClientImpl] Submitted application application_1448657806892_0039
+2015-11-28 14:16:04,966 INFO  [main][org.apache.hadoop.mapreduce.Job] The url to track the job: http://saxon.stat.duke.edu:8088/proxy/application_1448657806892_0039/
+2015-11-28 14:16:24,128 INFO  [main][org.apache.hadoop.fs.TrashPolicyDefault] Namenode trash configuration: Deletion interval = 0 minutes, Emptier interval = 0 minutes.
+2015-11-28 14:16:24,130 INFO  [main][org.godhuli.rhipe.FileUtils] Deleted hdfs://localhost:9000/tmp/rhipe-temp-c39622bba0b43299b9cb155c1d06a227
+2015-11-28 14:18:45,281 WARN  [main][org.apache.hadoop.util.NativeCodeLoader] Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2015-11-28 14:18:45,446 INFO  [main][org.apache.hadoop.yarn.client.RMProxy] Connecting to ResourceManager at /0.0.0.0:8032
+2015-11-28 14:19:00,183 INFO  [main][org.apache.hadoop.conf.Configuration.deprecation] fs.default.name is deprecated. Instead, use fs.defaultFS
+2015-11-28 14:19:00,858 INFO  [main][org.apache.hadoop.conf.Configuration.deprecation] mapred.output.compress is deprecated. Instead, use mapreduce.output.fileoutputformat.compress
+2015-11-28 14:19:00,860 INFO  [main][org.apache.hadoop.conf.Configuration.deprecation] mapred.job.reuse.jvm.num.tasks is deprecated. Instead, use mapreduce.job.jvm.numtasks
+2015-11-28 14:19:00,861 INFO  [main][org.apache.hadoop.conf.Configuration.deprecation] mapred.compress.map.output is deprecated. Instead, use mapreduce.map.output.compress
+2015-11-28 14:19:00,863 INFO  [main][org.godhuli.rhipe.RHMR] Adding to cache file:/tmp/rhipe-temp-params-23655273ca8563ddc39796c89bebbf8d#rhipe-temp-params-23655273ca8563ddc39796c89bebbf8d
+2015-11-28 14:19:00,871 DEBUG [main][org.godhuli.rhipe.RHMR] /tmp/rhipe-temp-d87739a627b4d1edd16387b29ff3fc27
+2015-11-28 14:19:00,909 INFO  [main][org.apache.hadoop.yarn.client.RMProxy] Connecting to ResourceManager at /0.0.0.0:8032
+2015-11-28 14:19:01,113 INFO  [main][org.apache.hadoop.mapreduce.lib.input.FileInputFormat] Total input paths to process : 1
+2015-11-28 14:19:01,259 INFO  [main][org.apache.hadoop.mapreduce.JobSubmitter] number of splits:236
+2015-11-28 14:19:01,653 INFO  [main][org.apache.hadoop.mapreduce.JobSubmitter] Submitting tokens for job: job_1448657806892_0041
+2015-11-28 14:19:01,880 INFO  [main][org.apache.hadoop.yarn.client.api.impl.YarnClientImpl] Submitted application application_1448657806892_0041
+2015-11-28 14:19:01,921 INFO  [main][org.apache.hadoop.mapreduce.Job] The url to track the job: http://saxon.stat.duke.edu:8088/proxy/application_1448657806892_0041/
+2015-11-28 14:19:20,884 INFO  [main][org.apache.hadoop.fs.TrashPolicyDefault] Namenode trash configuration: Deletion interval = 0 minutes, Emptier interval = 0 minutes.
+2015-11-28 14:19:21,560 INFO  [main][org.godhuli.rhipe.FileUtils] Deleted hdfs://localhost:9000/tmp/rhipe-temp-d87739a627b4d1edd16387b29ff3fc27
+2015-11-28 14:54:56,933 INFO  [main][org.apache.hadoop.yarn.client.RMProxy] Connecting to ResourceManager at /0.0.0.0:8032
+2015-11-28 14:56:17,245 INFO  [main][org.apache.hadoop.conf.Configuration.deprecation] fs.default.name is deprecated. Instead, use fs.defaultFS
+2015-11-28 14:56:17,557 INFO  [main][org.godhuli.rhipe.RHMR] Adding to cache file:/tmp/rhipe-temp-params-d52c5a056da5c942ee811cc09cad3bee#rhipe-temp-params-d52c5a056da5c942ee811cc09cad3bee
+2015-11-28 14:56:17,557 INFO  [main][org.godhuli.rhipe.RHMR] Adding to cache archive:/R/R.Pkg.tar.gz#R.Pkg
+2015-11-28 14:56:17,818 DEBUG [main][org.godhuli.rhipe.RHMR] /tmp/rhipe-temp-d0a3f57a60eb53bfb32a609ad710132b
+2015-11-28 14:56:37,399 INFO  [main][org.apache.hadoop.yarn.client.RMProxy] Connecting to ResourceManager at /0.0.0.0:8032
+2015-11-28 14:56:37,593 INFO  [main][org.apache.hadoop.mapreduce.lib.input.FileInputFormat] Total input paths to process : 1
+2015-11-28 14:56:37,682 INFO  [main][org.apache.hadoop.mapreduce.JobSubmitter] number of splits:236
+2015-11-28 14:56:37,732 INFO  [main][org.apache.hadoop.mapreduce.JobSubmitter] Submitting tokens for job: job_1448657806892_0045
+2015-11-28 14:56:54,356 INFO  [main][org.apache.hadoop.yarn.client.api.impl.YarnClientImpl] Submitted application application_1448657806892_0045
+2015-11-28 14:56:54,360 INFO  [main][org.apache.hadoop.mapreduce.Job] The url to track the job: http://saxon.stat.duke.edu:8088/proxy/application_1448657806892_0045/
+2015-11-28 15:13:02,064 INFO  [main][org.apache.hadoop.fs.TrashPolicyDefault] Namenode trash configuration: Deletion interval = 0 minutes, Emptier interval = 0 minutes.
+2015-11-28 15:13:02,066 INFO  [main][org.godhuli.rhipe.FileUtils] Deleted hdfs://localhost:9000/tmp/rhipe-temp-d0a3f57a60eb53bfb32a609ad710132b
+2015-11-28 15:15:36,595 INFO  [main][org.apache.hadoop.conf.Configuration.deprecation] fs.default.name is deprecated. Instead, use fs.defaultFS
+2015-11-28 15:15:37,032 INFO  [main][org.godhuli.rhipe.RHMR] Adding to cache file:/tmp/rhipe-temp-params-d9efcc138c80a2487cc6c0b2294eab82#rhipe-temp-params-d9efcc138c80a2487cc6c0b2294eab82
+2015-11-28 15:15:37,032 INFO  [main][org.godhuli.rhipe.RHMR] Adding to cache archive:/R/R.Pkg.tar.gz#R.Pkg
+2015-11-28 15:15:37,232 DEBUG [main][org.godhuli.rhipe.RHMR] /tmp/rhipe-temp-6b379db548077fa3a6d81229631aa0a8
+2015-11-28 15:15:37,262 INFO  [main][org.apache.hadoop.yarn.client.RMProxy] Connecting to ResourceManager at /0.0.0.0:8032
+2015-11-28 15:15:37,349 INFO  [main][org.apache.hadoop.mapreduce.lib.input.FileInputFormat] Total input paths to process : 1
+2015-11-28 15:15:37,421 INFO  [main][org.apache.hadoop.mapreduce.JobSubmitter] number of splits:236
+2015-11-28 15:15:37,447 INFO  [main][org.apache.hadoop.mapreduce.JobSubmitter] Submitting tokens for job: job_1448657806892_0046
+2015-11-28 15:15:37,465 INFO  [main][org.apache.hadoop.yarn.client.api.impl.YarnClientImpl] Submitted application application_1448657806892_0046
+2015-11-28 15:15:37,468 INFO  [main][org.apache.hadoop.mapreduce.Job] The url to track the job: http://saxon.stat.duke.edu:8088/proxy/application_1448657806892_0046/
+2015-11-28 16:28:23,301 INFO  [main][org.apache.hadoop.conf.Configuration.deprecation] fs.default.name is deprecated. Instead, use fs.defaultFS
+2015-11-28 16:28:23,416 INFO  [main][org.apache.hadoop.io.compress.CodecPool] Got brand-new decompressor [.deflate]
+2015-11-28 16:28:26,448 INFO  [main][org.godhuli.rhipe.RHMR] Adding to cache file:/tmp/rhipe-temp-params-a672182d6849f0d0e121343d3cefc6d9#rhipe-temp-params-a672182d6849f0d0e121343d3cefc6d9
+2015-11-28 16:28:26,448 INFO  [main][org.godhuli.rhipe.RHMR] Adding to cache archive:/R/R.Pkg.tar.gz#R.Pkg
+2015-11-28 16:28:26,449 DEBUG [main][org.godhuli.rhipe.RHMR] /tmp/rhipe-temp-0af09fc3f6abc7c162640cd2752d4e7b
+2015-11-28 16:28:26,479 INFO  [main][org.apache.hadoop.yarn.client.RMProxy] Connecting to ResourceManager at /0.0.0.0:8032
+2015-11-28 16:28:26,666 INFO  [main][org.apache.hadoop.mapreduce.lib.input.FileInputFormat] Total input paths to process : 1
+2015-11-28 16:28:26,715 INFO  [main][org.apache.hadoop.mapreduce.JobSubmitter] number of splits:214
+2015-11-28 16:28:26,738 INFO  [main][org.apache.hadoop.mapreduce.JobSubmitter] Submitting tokens for job: job_1448657806892_0051
+2015-11-28 16:28:26,753 INFO  [main][org.apache.hadoop.yarn.client.api.impl.YarnClientImpl] Submitted application application_1448657806892_0051
+2015-11-28 16:28:26,755 INFO  [main][org.apache.hadoop.mapreduce.Job] The url to track the job: http://saxon.stat.duke.edu:8088/proxy/application_1448657806892_0051/
+2015-11-28 17:41:10,556 INFO  [main][org.apache.hadoop.conf.Configuration.deprecation] fs.default.name is deprecated. Instead, use fs.defaultFS
+2015-11-28 17:41:38,137 INFO  [main][org.godhuli.rhipe.RHMR] Adding to cache file:/tmp/rhipe-temp-params-c373f78763343a870115c69e2f2decf4#rhipe-temp-params-c373f78763343a870115c69e2f2decf4
+2015-11-28 17:41:38,138 INFO  [main][org.godhuli.rhipe.RHMR] Adding to cache archive:/R/R.Pkg.tar.gz#R.Pkg
+2015-11-28 17:41:38,140 DEBUG [main][org.godhuli.rhipe.RHMR] /tmp/rhipe-temp-36236da2f85876b407985680b0706113
+2015-11-28 17:41:38,168 INFO  [main][org.apache.hadoop.yarn.client.RMProxy] Connecting to ResourceManager at /0.0.0.0:8032
+2015-11-28 17:41:38,232 INFO  [main][org.apache.hadoop.mapreduce.lib.input.FileInputFormat] Total input paths to process : 1
+2015-11-28 17:41:38,292 INFO  [main][org.apache.hadoop.mapreduce.JobSubmitter] number of splits:244
+2015-11-28 17:41:38,362 INFO  [main][org.apache.hadoop.mapreduce.JobSubmitter] Submitting tokens for job: job_1448657806892_0065
+2015-11-28 17:41:38,377 INFO  [main][org.apache.hadoop.yarn.client.api.impl.YarnClientImpl] Submitted application application_1448657806892_0065
+2015-11-28 17:41:38,379 INFO  [main][org.apache.hadoop.mapreduce.Job] The url to track the job: http://saxon.stat.duke.edu:8088/proxy/application_1448657806892_0065/
+2015-11-28 19:51:54,518 INFO  [main][org.apache.hadoop.conf.Configuration.deprecation] fs.default.name is deprecated. Instead, use fs.defaultFS
+2015-11-28 19:52:20,905 INFO  [main][org.godhuli.rhipe.RHMR] Adding to cache file:/tmp/rhipe-temp-params-4d8df6ec070fb9ebff1190f66fc49604#rhipe-temp-params-4d8df6ec070fb9ebff1190f66fc49604
+2015-11-28 19:52:20,906 INFO  [main][org.godhuli.rhipe.RHMR] Adding to cache archive:/R/R.Pkg.tar.gz#R.Pkg
+2015-11-28 19:52:20,973 DEBUG [main][org.godhuli.rhipe.RHMR] /tmp/rhipe-temp-d9a138a100fba702474b556c96e9193d
+2015-11-28 19:52:21,002 INFO  [main][org.apache.hadoop.yarn.client.RMProxy] Connecting to ResourceManager at /0.0.0.0:8032
+2015-11-28 19:52:21,046 INFO  [main][org.apache.hadoop.mapreduce.lib.input.FileInputFormat] Total input paths to process : 1
+2015-11-28 19:52:21,098 INFO  [main][org.apache.hadoop.mapreduce.JobSubmitter] number of splits:251
+2015-11-28 19:52:21,524 INFO  [main][org.apache.hadoop.mapreduce.JobSubmitter] Submitting tokens for job: job_1448657806892_0074
+2015-11-28 19:52:21,543 INFO  [main][org.apache.hadoop.yarn.client.api.impl.YarnClientImpl] Submitted application application_1448657806892_0074
+2015-11-28 19:52:21,545 INFO  [main][org.apache.hadoop.mapreduce.Job] The url to track the job: http://saxon.stat.duke.edu:8088/proxy/application_1448657806892_0074/
+2015-11-28 21:07:36,506 INFO  [main][org.apache.hadoop.conf.Configuration.deprecation] fs.default.name is deprecated. Instead, use fs.defaultFS
+2015-11-28 21:07:39,987 INFO  [main][org.godhuli.rhipe.RHMR] Adding to cache file:/tmp/rhipe-temp-params-297b3b26d136f99e8af12b3c664afed5#rhipe-temp-params-297b3b26d136f99e8af12b3c664afed5
+2015-11-28 21:07:39,987 INFO  [main][org.godhuli.rhipe.RHMR] Adding to cache archive:/R/R.Pkg.tar.gz#R.Pkg
+2015-11-28 21:07:39,988 DEBUG [main][org.godhuli.rhipe.RHMR] /tmp/rhipe-temp-a87e1ea77c1f71370f8406f889e505c5
+2015-11-28 21:07:40,004 INFO  [main][org.apache.hadoop.yarn.client.RMProxy] Connecting to ResourceManager at /0.0.0.0:8032
+2015-11-28 21:07:40,110 INFO  [main][org.apache.hadoop.mapreduce.lib.input.FileInputFormat] Total input paths to process : 1
+2015-11-28 21:07:40,179 INFO  [main][org.apache.hadoop.mapreduce.JobSubmitter] number of splits:250
+2015-11-28 21:07:40,232 INFO  [main][org.apache.hadoop.mapreduce.JobSubmitter] Submitting tokens for job: job_1448657806892_0083
+2015-11-28 21:07:40,450 INFO  [main][org.apache.hadoop.yarn.client.api.impl.YarnClientImpl] Submitted application application_1448657806892_0083
+2015-11-28 21:07:40,452 INFO  [main][org.apache.hadoop.mapreduce.Job] The url to track the job: http://saxon.stat.duke.edu:8088/proxy/application_1448657806892_0083/
+2015-11-28 23:28:39,894 INFO  [main][org.apache.hadoop.conf.Configuration.deprecation] fs.default.name is deprecated. Instead, use fs.defaultFS
