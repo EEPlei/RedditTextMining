@@ -90,8 +90,24 @@ monthly_subreddits <- lapply(files,MapReduce)
 # )
 
 
-data <- monthly_subreddits[[5]]
-May <- data[order(data$value,decreasing = TRUE),]
+data1 <- monthly_subreddits[[1]]
+Jan <- data1[order(data1$value,decreasing = TRUE),]
+save(Jan,file = "Jan.Rdata")
+
+data2 <- monthly_subreddits[[2]]
+Feb <- data2[order(data2$value,decreasing = TRUE),]
+save(Feb,file = "Feb.Rdata")
+
+data3 <- monthly_subreddits[[3]]
+Mar <- data3[order(data3$value,decreasing = TRUE),]
+save(Mar,file = "Mar.Rdata")
+
+data4 <- monthly_subreddits[[4]]
+Apr <- data4[order(data4$value,decreasing = TRUE),]
+save(Apr,file = "Apr.Rdata")
+
+data5 <- monthly_subreddits[[5]]
+May <- data5[order(data5$value,decreasing = TRUE),]
 save(May,file = "May.Rdata")
 
 
