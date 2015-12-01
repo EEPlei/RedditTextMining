@@ -46,6 +46,8 @@ user_reduce = expression(
 
 user_map = expression({
   suppressMessages(library(jsonlite))
+  suppressMessages(library(stringr))
+  
   time_converter = function(x){
     #below code gives me the numeric version of each utcs
     newtime = lapply(time, as.numeric)
@@ -96,7 +98,6 @@ files <- c(
   "/data/RC_2015-05.json"
 )
 
-files = short_1e3.json""
 monthly_utc <- lapply(files,MapReduce)
 # 
 # 
