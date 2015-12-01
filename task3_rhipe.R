@@ -14,6 +14,7 @@ if (!("Rhipe" %in% installed.packages()))
 }
 
 library(Rhipe)
+library(stringr)
 rhinit()
 
 ## Uncomment following lines if you need non-base packages
