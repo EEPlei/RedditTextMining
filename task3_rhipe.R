@@ -62,8 +62,8 @@ wc_map = expression({
         line = strsplit(line, "\\s+")[[1]]
         line = line[line != ""]
         line <- setdiff(line, sw)
+        lapply(line, rhcollect, value=1)
       }
-      lapply(line, rhcollect, value=1)
     }     
   )
 })
