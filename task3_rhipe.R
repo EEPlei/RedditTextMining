@@ -14,7 +14,6 @@ if (!("Rhipe" %in% installed.packages()))
 }
 
 library(Rhipe)
-library(stringr)
 rhinit()
 
 ## Uncomment following lines if you need non-base packages
@@ -39,6 +38,7 @@ wc_reduce = expression(
 )
 
 wc_map = expression({
+  suppressMessages(library(stringr))
   stopwords <- c("a","the","it")
   lapply(
     seq_along(map.keys), 
@@ -50,7 +50,7 @@ wc_map = expression({
       strs2 = strsplit(strs[[1]][1], "-")
       date = strs2[[1]][3]
       if(date == "14"){
-        line = tolower(map.values[[r]])
+        line = tolower(map.values[[r]]$body)
         line = gsub("[-—]"," ",line)
         line = gsub("[^'`’[:alpha:][:space:]]","",line,perl=TRUE)
         line = gsub("(^\\s+|\\s+$)","",line)
