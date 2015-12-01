@@ -40,7 +40,11 @@ wc_reduce = expression(
 wc_map = expression({
   suppressMessages(library(stringr))
   suppressMessages(library(jsonlite))
-  stopwords <- c("a","the","it")
+  suppressMessages(library(NLP))
+  suppressMessages(library(tm))
+  x <- stopwords("en")
+  y <- stopwords("SMART")
+  sw <- union(x,y)
   lapply(
     seq_along(map.keys), 
     function(r) 
@@ -57,7 +61,7 @@ wc_map = expression({
         line = gsub("(^\\s+|\\s+$)","",line)
         line = strsplit(line, "\\s+")[[1]]
         line = line[line != ""]
-        line <- setdiff(line, stopwords)
+        line <- setdiff(line, sw)
       }
       lapply(line, rhcollect, value=1)
     }     
