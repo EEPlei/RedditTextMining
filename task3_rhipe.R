@@ -17,8 +17,8 @@ library(Rhipe)
 rhinit()
 
 ## Uncomment following lines if you need non-base packages
-#rhoptions(zips = '/R/R.Pkg.tar.gz')
-#rhoptions(runner = 'sh ./R.Pkg/library/Rhipe/bin/RhipeMapReduce.sh')
+rhoptions(zips = '/R/R.Pkg.tar.gz')
+rhoptions(runner = 'sh ./R.Pkg/library/Rhipe/bin/RhipeMapReduce.sh')
 
 
 
