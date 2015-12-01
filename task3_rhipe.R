@@ -39,18 +39,19 @@ wc_reduce = expression(
 
 wc_map = expression({
   suppressMessages(library(stringr))
+  suppressMessages(library(jsonlite))
   stopwords <- c("a","the","it")
   lapply(
     seq_along(map.keys), 
     function(r) 
     {
-      time <- str_extract(map.values[[r]],"[0-9]{10}")
-      new.time <- as.POSIXct(as.numeric(time), origin='1970-01-01')
+      time = fromJSON(map.values[[r]])$created_utc
+      new.time = as.POSIXct(as.numeric(time), origin='1970-01-01')
       strs = strsplit(toString(new.time), " ")
       strs2 = strsplit(strs[[1]][1], "-")
       date = strs2[[1]][3]
       if(date == "14"){
-        line = tolower(map.values[[r]]$body)
+        line = tolower(fromJSON(map.values[[r]])$body)
         line = gsub("[-—]"," ",line)
         line = gsub("[^'`’[:alpha:][:space:]]","",line,perl=TRUE)
         line = gsub("(^\\s+|\\s+$)","",line)
