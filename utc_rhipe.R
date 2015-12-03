@@ -48,7 +48,7 @@ user_map = expression({
   suppressMessages(library(jsonlite))
   suppressMessages(library(stringr))
   
-  time_converter = function(x){
+  time_converter = function(time){
     #below code gives me the numeric version of each utcs
     newtime = lapply(time, as.numeric)
     #below code applies as.POSIXct function to the newtime dataframe
@@ -58,8 +58,8 @@ user_map = expression({
     stacked_time = lapply(stdtime, str_replace,":[0-5][0-9]:[0-5][0-9]", ":00:00")
     
     #below codes converts back the time to utc
-    back_to_utc = lapply(stacked_time, as.POSIXct)
-    converted_utc = lapply(back_to_utc, as.numeric)
+    back_to_utc = sapply(stacked_time, as.POSIXct)
+    converted_utc = sapply(back_to_utc, as.numeric)
     
     
     return(converted_utc)
@@ -87,7 +87,7 @@ MapReduce <- function(file){
   counts = data.frame(key = sapply(user,get_val,i=1),
                       value = sapply(user,get_val,i=2), 
                       stringsAsFactors=FALSE)
-  counts
+  return(counts)
 }
 
 files <- c(
@@ -108,19 +108,19 @@ monthly_utc <- lapply(files,MapReduce)
 # )
 
 
-Jan1 <- monthly_utc[[1]]
-save(Jan1,file = "Jan1.Rdata")
+Jan.utc <- monthly_utc[[1]]
+save(Jan.utc,file = "JanUtc.Rdata")
 
-Feb1 <- monthly_utc[[2]]
-save(Feb1,file = "Feb1.Rdata")
+Feb.utc <- monthly_utc[[2]]
+save(Feb.utc,file = "FebUtc.Rdata")
 
-Mar1 <- monthly_utc[[3]]
-save(Mar1,file = "Mar1.Rdata")
+Mar.utc <- monthly_utc[[3]]
+save(Mar.utc,file = "MarUtc.Rdata")
 
-Apr1 <- monthly_utc[[4]]
-save(Apr1,file = "Apr1.Rdata")
+Apr.utc <- monthly_utc[[4]]
+save(Apr.utc,file = "AprUtc.Rdata")
 
-May1 <- monthly_utc[[5]]
-save(May1,file = "May1.Rdata")
+May.utc <- monthly_utc[[5]]
+save(May.utc,file = "MayUtc.Rdata")
 
 
