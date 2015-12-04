@@ -46,12 +46,30 @@ user_reduce = expression(
 
 user_map = expression({
   suppressMessages(library(jsonlite))
+  suppressMessages(library(stringr))
   
+  time_converter = function(time){
+    #below code gives me the numeric version of each utcs
+    newtime = lapply(time, as.numeric)
+    #below code applies as.POSIXct function to the newtime dataframe
+    stdtime = lapply(newtime, as.POSIXct,origin = '1970-01-01')
+    
+    #below code replaces the minutes and seconds with 00:00 so its easy to aggregate
+    stacked_time = lapply(stdtime, str_replace,":[0-5][0-9]:[0-5][0-9]", ":00:00")
+    
+    #below codes converts back the time to utc
+    back_to_utc = sapply(stacked_time, as.POSIXct)
+    converted_utc = sapply(back_to_utc, as.numeric)
+    
+    
+    return(converted_utc)
+  }
   lapply(
     seq_along(map.keys), 
     function(r) 
     {
-      key = fromJSON(map.values[[r]])$subreddit
+      key = fromJSON(map.values[[r]])$created_utc
+      key = time_converter(key)
       value = 1
       rhcollect(key,value)
     }
@@ -69,7 +87,7 @@ MapReduce <- function(file){
   counts = data.frame(key = sapply(user,get_val,i=1),
                       value = sapply(user,get_val,i=2), 
                       stringsAsFactors=FALSE)
-  counts
+  return(counts)
 }
 
 files <- c(
@@ -78,9 +96,9 @@ files <- c(
   "/data/RC_2015-03.json",
   "/data/RC_2015-04.json",
   "/data/RC_2015-05.json"
-  )
+)
 
-monthly_subreddits <- lapply(files,MapReduce)
+monthly_utc <- lapply(files,MapReduce)
 # 
 # 
 # user = rhwatch(
@@ -90,24 +108,19 @@ monthly_subreddits <- lapply(files,MapReduce)
 # )
 
 
-data1 <- monthly_subreddits[[1]]
-Jan <- data1[order(data1$value,decreasing = TRUE),]
-save(Jan,file = "Jan.Rdata")
+Jan.utc <- monthly_utc[[1]]
+save(Jan.utc,file = "JanUtc.Rdata")
 
-data2 <- monthly_subreddits[[2]]
-Feb <- data2[order(data2$value,decreasing = TRUE),]
-save(Feb,file = "Feb.Rdata")
+Feb.utc <- monthly_utc[[2]]
+save(Feb.utc,file = "FebUtc.Rdata")
 
-data3 <- monthly_subreddits[[3]]
-Mar <- data3[order(data3$value,decreasing = TRUE),]
-save(Mar,file = "Mar.Rdata")
+Mar.utc <- monthly_utc[[3]]
+save(Mar.utc,file = "MarUtc.Rdata")
 
-data4 <- monthly_subreddits[[4]]
-Apr <- data4[order(data4$value,decreasing = TRUE),]
-save(Apr,file = "Apr.Rdata")
+Apr.utc <- monthly_utc[[4]]
+save(Apr.utc,file = "AprUtc.Rdata")
 
-data5 <- monthly_subreddits[[5]]
-May <- data5[order(data5$value,decreasing = TRUE),]
-save(May,file = "May.Rdata")
+May.utc <- monthly_utc[[5]]
+save(May.utc,file = "MayUtc.Rdata")
 
 
