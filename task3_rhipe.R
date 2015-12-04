@@ -13,14 +13,13 @@ if (!("Rhipe" %in% installed.packages()))
   install.packages("/data/hadoop/rhipe/Rhipe_0.75.1.6_hadoop-2.tar.gz", repos=NULL)
 }
 
-library(Rhipe)
-rhinit()
 
 ## Uncomment following lines if you need non-base packages
 rhoptions(zips = '/R/R.Pkg.tar.gz')
 rhoptions(runner = 'sh ./R.Pkg/library/Rhipe/bin/RhipeMapReduce.sh')
 
-
+library(Rhipe)
+rhinit()
 
 ### Word Count Example
 
