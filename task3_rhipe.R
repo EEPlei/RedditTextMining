@@ -69,13 +69,52 @@ wc_map = expression({
 })
 
 
-wc = rhwatch(
-  map      = wc_map,
-  reduce   = wc_reduce,
-  input    = rhfmt("/data/short_1e3.json", type = "text")
-)
+#wc = rhwatch(
+#  map      = wc_map,
+#  reduce   = wc_reduce,
+#  input    = rhfmt("/data/RC_2015-02.json", type = "text")
+#)
 
 
 get_val = function(x,i) x[[i]]
 
-counts = data.frame(key = sapply(wc,get_val,i=1),value = sapply(wc,get_val,i=2), stringsAsFactors=FALSE)
+MapReduce <- function(file){
+  user = rhwatch(
+    map      = wc_map,
+    reduce   = wc_reduce,
+    input    = rhfmt(file, type = "text")
+  )
+  counts = data.frame(key = sapply(user,get_val,i=1),
+                      value = sapply(user,get_val,i=2), 
+                      stringsAsFactors=FALSE)
+  counts
+}
+
+files <- c(
+  "/data/RC_2015-01.json",
+  "/data/RC_2015-02.json",
+  "/data/RC_2015-03.json"
+)
+
+valentine_data <- lapply(files,MapReduce)
+# 
+# 
+# user = rhwatch(
+#   map      = user_map,
+#   reduce   = user_reduce,
+#   input    = rhfmt("/data/RC_2015-01.json", type = "text")
+# )
+
+
+data1 <- valentine_data[[1]]
+Jan_14 <- data1[order(data1$value,decreasing = TRUE),]
+save(Jan_14,file = "Jan_14.Rdata")
+
+data2 <- valentine_data[[2]]
+Feb_14 <- data2[order(data2$value,decreasing = TRUE),]
+save(Feb_14,file = "Feb_14.Rdata")
+
+data3 <- valentine_data[[3]]
+Mar_14 <- data3[order(data3$value,decreasing = TRUE),]
+save(Mar_14,file = "Mar_14.Rdata")
+
