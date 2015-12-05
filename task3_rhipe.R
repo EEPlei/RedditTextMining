@@ -14,11 +14,12 @@ if (!("Rhipe" %in% installed.packages()))
 }
 
 library(Rhipe)
+library(stringr)
 rhinit()
 
 ## Uncomment following lines if you need non-base packages
-rhoptions(zips = '/R/R.Pkg.tar.gz')
-rhoptions(runner = 'sh ./R.Pkg/library/Rhipe/bin/RhipeMapReduce.sh')
+#rhoptions(zips = '/R/R.Pkg.tar.gz')
+#rhoptions(runner = 'sh ./R.Pkg/library/Rhipe/bin/RhipeMapReduce.sh')
 
 
 ### Word Count Example
@@ -37,83 +38,38 @@ wc_reduce = expression(
 )
 
 wc_map = expression({
-  suppressMessages(library(stringr))
-  suppressMessages(library(jsonlite))
-  suppressMessages(library(NLP))
-  suppressMessages(library(tm))
-  x <- stopwords("en")
-  y <- stopwords("SMART")
-  sw <- union(x,y)
+  stopwords <- c("a","the","it")
   lapply(
     seq_along(map.keys), 
     function(r) 
     {
-      time = fromJSON(map.values[[r]])$created_utc
-      new.time = as.POSIXct(as.numeric(time), origin='1970-01-01')
+      time <- str_extract(map.values[[r]],"[0-9]{10}")
+      new.time <- as.POSIXct(as.numeric(time), origin='1970-01-01')
       strs = strsplit(toString(new.time), " ")
       strs2 = strsplit(strs[[1]][1], "-")
       date = strs2[[1]][3]
       if(date == "14"){
-        line = tolower(fromJSON(map.values[[r]])$body)
+        line = tolower(map.values[[r]])
         line = gsub("[-—]"," ",line)
         line = gsub("[^'`’[:alpha:][:space:]]","",line,perl=TRUE)
         line = gsub("(^\\s+|\\s+$)","",line)
         line = strsplit(line, "\\s+")[[1]]
         line = line[line != ""]
-        line <- setdiff(line, sw)
-        lapply(line, rhcollect, value=1)
+        line <- setdiff(line, stopwords)
       }
+      lapply(line, rhcollect, value=1)
     }     
   )
 })
 
 
-#wc = rhwatch(
-#  map      = wc_map,
-#  reduce   = wc_reduce,
-#  input    = rhfmt("/data/RC_2015-02.json", type = "text")
-#)
+wc = rhwatch(
+  map      = wc_map,
+  reduce   = wc_reduce,
+  input    = rhfmt("/data/short_1e3.json", type = "text")
+)
 
 
 get_val = function(x,i) x[[i]]
 
-MapReduce <- function(file){
-  user = rhwatch(
-    map      = wc_map,
-    reduce   = wc_reduce,
-    input    = rhfmt(file, type = "text")
-  )
-  counts = data.frame(key = sapply(user,get_val,i=1),
-                      value = sapply(user,get_val,i=2), 
-                      stringsAsFactors=FALSE)
-  counts
-}
-
-files <- c(
-  "/data/RC_2015-01.json",
-  "/data/RC_2015-02.json",
-  "/data/RC_2015-03.json"
-)
-
-valentine_data <- lapply(files,MapReduce)
-# 
-# 
-# user = rhwatch(
-#   map      = user_map,
-#   reduce   = user_reduce,
-#   input    = rhfmt("/data/RC_2015-01.json", type = "text")
-# )
-
-
-data1 <- valentine_data[[1]]
-Jan_14 <- data1[order(data1$value,decreasing = TRUE),]
-save(Jan_14,file = "Jan_14.Rdata")
-
-data2 <- valentine_data[[2]]
-Feb_14 <- data2[order(data2$value,decreasing = TRUE),]
-save(Feb_14,file = "Feb_14.Rdata")
-
-data3 <- valentine_data[[3]]
-Mar_14 <- data3[order(data3$value,decreasing = TRUE),]
-save(Mar_14,file = "Mar_14.Rdata")
-
+counts = data.frame(key = sapply(wc,get_val,i=1),value = sapply(wc,get_val,i=2), stringsAsFactors=FALSE)

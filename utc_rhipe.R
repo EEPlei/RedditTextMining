@@ -1,7 +1,3 @@
-# ("/data/Sta523/reddit/short_1e3.json")
-### Initialization of Rhipe and Hadoop
-
-
 install.packages("testthat")
 install.packages("rJava")
 
@@ -18,20 +14,18 @@ if (!("Rhipe" %in% installed.packages()))
   install.packages("/data/hadoop/rhipe/Rhipe_0.75.1.6_hadoop-2.tar.gz", repos=NULL)
 }
 
-
+library(Rhipe)
+rhinit()
 
 ## Uncomment following lines if you need non-base packages
 rhoptions(zips = '/R/R.Pkg.tar.gz')
 rhoptions(runner = 'sh ./R.Pkg/library/Rhipe/bin/RhipeMapReduce.sh')
 
 
-library(Rhipe)
-rhinit()
+#############
+##COUNT UTC##
+#############
 
-### put a file to HDFS so we can use it
-#rhput("/data/Shakespeare/hamlet.txt","/data/")
-
-#rhls("/data")
 user_reduce = expression(
   pre = {
     total = 0
@@ -53,12 +47,11 @@ user_map = expression({
     newtime = lapply(time, as.numeric)
     #below code applies as.POSIXct function to the newtime dataframe
     stdtime = lapply(newtime, as.POSIXct,origin = '1970-01-01')
-    
     #below code replaces the minutes and seconds with 00:00 so its easy to aggregate
     stacked_time = lapply(stdtime, str_replace,":[0-5][0-9]:[0-5][0-9]", ":00:00")
-    
     #below codes converts back the time to utc
-    back_to_utc = sapply(stacked_time, as.POSIXct)
+
+    back_to_utc = lapply(stacked_time, as.POSIXct)
     converted_utc = sapply(back_to_utc, as.numeric)
     
     
@@ -68,10 +61,10 @@ user_map = expression({
     seq_along(map.keys), 
     function(r) 
     {
-      key = fromJSON(map.values[[r]])$created_utc
-      key = time_converter(key)
+      time = fromJSON(map.values[[r]])$created_utc
+      key = time_converter(time)
       value = 1
-      rhcollect(key,value)
+      lapply(key, rhcollect, value=1)
     }
   )
 })
@@ -90,37 +83,77 @@ MapReduce <- function(file){
   return(counts)
 }
 
-files <- c(
-  "/data/RC_2015-01.json",
-  "/data/RC_2015-02.json",
-  "/data/RC_2015-03.json",
-  "/data/RC_2015-04.json",
-  "/data/RC_2015-05.json"
+jan_utc <- MapReduce("/data/RC_2015-01.json")
+save(jan_utc, file = "jan_utc.Rdata")
+
+#############
+##GILDED UTC##
+#############
+
+user_reduce = expression(
+  pre = {
+    total = 0
+  },
+  reduce = {
+    total = total + sum(unlist(reduce.values))
+  },
+  post = {
+    rhcollect(reduce.key, total)
+  }
 )
 
-monthly_utc <- lapply(files,MapReduce)
-# 
-# 
-# user = rhwatch(
-#   map      = user_map,
-#   reduce   = user_reduce,
-#   input    = rhfmt("/data/RC_2015-01.json", type = "text")
-# )
+user_map = expression({
+  suppressMessages(library(jsonlite))
+  suppressMessages(library(stringr))
+  
+  time_converter = function(time){
+    #below code gives me the numeric version of each utcs
+    newtime = lapply(time, as.numeric)
+    #below code applies as.POSIXct function to the newtime dataframe
+    stdtime = lapply(newtime, as.POSIXct,origin = '1970-01-01')
+    #below code replaces the minutes and seconds with 00:00 so its easy to aggregate
+    stacked_time = lapply(stdtime, str_replace,":[0-5][0-9]:[0-5][0-9]", ":00:00")
+    #below codes converts back the time to utc
+    
+    back_to_utc = lapply(stacked_time, as.POSIXct)
+    converted_utc = sapply(back_to_utc, as.numeric)
 
+    return(converted_utc)
+  }
+  gold <- lapply(
+    seq_along(map.keys), 
+    function(r) 
+    {
+      gilded = fromJSON(map.values[[r]])$gilded
+    }
+  ) 
+  gindex <- lapply(gold, as.numeric)
+  gindex <- which(gindex == 1)
+  map.keys <- map.keys[gindex]
+  lapply(
+    seq_along(map.keys), 
+    function(r) 
+    {
+      time = fromJSON(map.values[[r]])$created_utc
+      key = time_converter(time)
+      value = 1
+      lapply(key, rhcollect, value=1)
+    }
+  )
+})
 
-Jan.utc <- monthly_utc[[1]]
-save(Jan.utc,file = "JanUtc.Rdata")
+get_val = function(x,i) x[[i]]
 
-Feb.utc <- monthly_utc[[2]]
-save(Feb.utc,file = "FebUtc.Rdata")
-
-Mar.utc <- monthly_utc[[3]]
-save(Mar.utc,file = "MarUtc.Rdata")
-
-Apr.utc <- monthly_utc[[4]]
-save(Apr.utc,file = "AprUtc.Rdata")
-
-May.utc <- monthly_utc[[5]]
-save(May.utc,file = "MayUtc.Rdata")
-
-
+MapReduce <- function(file){
+  user = rhwatch(
+    map      = user_map,
+    reduce   = user_reduce,
+    input    = rhfmt(file, type = "text")
+  )
+  counts = data.frame(key = sapply(user,get_val,i=1),
+                      value = sapply(user,get_val,i=2), 
+                      stringsAsFactors=FALSE)
+  return(counts)
+}
+jan_gilded <- MapReduce("/data/RC_2015-01.json")
+save(jan_gilded, file = "jan_gild.Rdata")
