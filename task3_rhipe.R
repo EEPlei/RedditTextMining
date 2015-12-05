@@ -21,7 +21,6 @@ rhoptions(zips = '/R/R.Pkg.tar.gz')
 rhoptions(runner = 'sh ./R.Pkg/library/Rhipe/bin/RhipeMapReduce.sh')
 
 
-
 ### Word Count Example
 
 
