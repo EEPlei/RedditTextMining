@@ -62,15 +62,6 @@ billboard <- list(January = Jan[1:25,],
 For task 3, we need to find out what redditors are saying on Valentine's Day. To do that, we pick not only Feburary 14, but also January 14 and March 14 as control days. Basically the idea is still based on MapReduce method on Rhipe and Haddop. Similarly, we have wc_reduce, wc_map and MapReduce functions. But we need to filter out 1/14, 2/14 and 3/14 and perform word counting only for these three days. wc_reduce and MapReduce part are pretty much the same. wc_map part is as follows.
 ```{r}
 
-<<<<<<< HEAD
-=======
-For task 3, we need to find out what redditors are saying on Valentines Day. To do that, we pick not only Feburary 
-14, but also January 14 and March 14 as control days. Basically the idea is still based on MapReduce method on Rhipe 
-and Haddop. Similarly, we have wc_reduce, wc_map and MapReduce functions. But we need to filter out 1/14, 2/14 and 
-3/14 and perform word counting only for these three days. wc_reduce and MapReduce part are pretty much the same. 
-wc_map part is as follows.
-
->>>>>>> 568ebe8f3fce0e78552f54bff513a06e4b52d2eb
 wc_map = expression({
   suppressMessages(library(stringr))
   suppressMessages(library(jsonlite))
@@ -111,6 +102,7 @@ library(tm)
   sw <- union(x,y)
 ```
 x contains 174 stop words. y contains 571 stop words. sw consists of x and y. The stop words are as follows.
+```{r}
 > sw[1:30]
  [1] "i" "me" "my" "myself" "we" "our" "ours" "ourselves" "you"       
 [10] "your" "yours" "yourself" "yourselves" "he" "him" "his" "himself" "she"  [19] "her" "hers" "herself" "it" "its" 
@@ -122,19 +114,14 @@ x contains 174 stop words. y contains 571 stop words. sw consists of x and y. Th
  [1] "wants" "way" "welcome" "well" "went" "whatever" "whence" "whenever" "whereafter"
 [10] "whereas" "whereby" "wherein" "whereupon" "wherever" "whether" "whither" "whoever" "whole"     
 [19] "whose" "will" "willing" "wish" "within" "without" "wonder" "x" "y"      [28] "yes" "yet" "z" "zero"
+```
 
-In the function inside lapply, we use as.POSIXct() function to transfer created_utc to normal date. Then use strsplit 
-to extract the specific day of the date. Since we only perform this function on RC_2015-01.json, RC_2015-02.json and 
-RC_2015-03.json, if the day is 14 then that is what we want. In the if clause, we only care about body, 
-let line = tolower(fromJSON(map.values[[r]])$body). Then we strip things like punctuation and capitalization on line 
-and use setdiff() to remove stop words we previously defined. Lastly, we use rhcollect to assign the value 1 to each 
+In the function inside lapply, we use as.POSIXct() function to transfer created_utc to normal date. Then use strsplit to extract the specific day of the date. Since we only perform this function on RC_2015-01.json, RC_2015-02.json and RC_2015-03.json, if the day is 14 then that is what we want. In the if clause, we only care about body, let line = tolower(fromJSON(map.values[[r]])$body). Then we strip things like punctuation and capitalization on line and use setdiff() to remove stop words we previously defined. Lastly, we use rhcollect to assign the value 1 to each 
 line.
 
-We perform MapReduce on RC_2015-01.json, RC_2015-02.json and RC_2015-03.json and then save the results as Jan_14.Rdata, 
-Feb_14.Rdata and Mar_14.Rdata.
+We perform MapReduce on RC_2015-01.json, RC_2015-02.json and RC_2015-03.json and then save the results as Jan_14.Rdata, Feb_14.Rdata and Mar_14.Rdata.
 
-From the results, we found top 120 words from the three days are pretty much similiar. But when we slice 120-130 rows 
-from the three days, things are a bit different. 
+From the results, we found top 120 words from the three days are pretty much similiar. But when we slice 120-130 rows from the three days, things are a bit different. 
 
 ```{r} 
   
@@ -177,14 +164,7 @@ from the three days, things are a bit different.
 9     players 10515
 10     called 10281
 11       hate 10280
-<<<<<<< HEAD
-=======
 
-As we can see above, there are some frequently words are like "damn", "today", "single" on Valentines Day which are not 
-in two other days. Seems like there might be more bachelors positng on reddit complaining about their singleness on 
-Valentines Day.  
-
->>>>>>> 568ebe8f3fce0e78552f54bff513a06e4b52d2eb
 ```
 As we can see above, there are some frequently words are like "damn", "today", "single" on Valentines Day which are not in two other days. Seems like there might be more bachelors positng on reddit complaining about their singleness on Valentines Day.  
   
