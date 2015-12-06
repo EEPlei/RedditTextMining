@@ -121,8 +121,10 @@ x contains 174 stop words. y contains 571 stop words. sw consists of x and y. Th
 
 In the function inside lapply, we use as.POSIXct() function to transfer created_utc to normal date. Then use strsplit 
 to extract the specific day of the date. Since we only perform this function on RC_2015-01.json, RC_2015-02.json and 
-RC_2015-03.json, if the day is 14 then that is what we want. In the if clause, we only care about body, let line = tolower(fromJSON(map.values[[r]])$body). Then we strip things like punctuation and capitalization on line and use 
-setdiff() to remove stop words we previously defined. Lastly, we use rhcollect to assign the value 1 to each line.
+RC_2015-03.json, if the day is 14 then that is what we want. In the if clause, we only care about body, 
+let line = tolower(fromJSON(map.values[[r]])$body). Then we strip things like punctuation and capitalization on line 
+and use setdiff() to remove stop words we previously defined. Lastly, we use rhcollect to assign the value 1 to each 
+line.
 
 We perform MapReduce on RC_2015-01.json, RC_2015-02.json and RC_2015-03.json and then save the results as Jan_14.Rdata, 
 Feb_14.Rdata and Mar_14.Rdata.
