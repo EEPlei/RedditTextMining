@@ -11,7 +11,7 @@ source("task3_rhipe.R")
 
 ```
 
-Task 1
+##Task 1##
 ```{r}
 
 library(dplyr)
@@ -54,14 +54,13 @@ billboard <- list(January = Jan[1:25,],
 
 ```
 
-Task 2
+##Task 2##
 ```{r}
 
 ```
-Task 3
+##Task 3##
+For task 3, we need to find out what redditors are saying on Valentine's Day. To do that, we pick not only Feburary 14, but also January 14 and March 14 as control days. Basically the idea is still based on MapReduce method on Rhipe and Haddop. Similarly, we have wc_reduce, wc_map and MapReduce functions. But we need to filter out 1/14, 2/14 and 3/14 and perform word counting only for these three days. wc_reduce and MapReduce part are pretty much the same. wc_map part is as follows.
 ```{r}
-
-For task 3, we need to find out what redditors are saying on Valentines Day. To do that, we pick not only Feburary 14, but also January 14 and March 14 as control days. Basically the idea is still based on MapReduce method on Rhipe and Haddop. Similarly, we have wc_reduce, wc_map and MapReduce functions. But we need to filter out 1/14, 2/14 and 3/14 and perform word counting only for these three days. wc_reduce and MapReduce part are pretty much the same. wc_map part is as follows.
 
 wc_map = expression({
   suppressMessages(library(stringr))
@@ -94,15 +93,15 @@ wc_map = expression({
   )
 })
 
+```
 In wc_map, we use stopwords function from tm package to remove stop words.
-
-  library(tm)
+```{r}
+library(tm)
   x <- stopwords("en")
   y <- stopwords("SMART")
   sw <- union(x,y)
-  
+```
 x contains 174 stop words. y contains 571 stop words. sw consists of x and y. The stop words are as follows.
-
 > sw[1:30]
  [1] "i" "me" "my" "myself" "we" "our" "ours" "ourselves" "you"       
 [10] "your" "yours" "yourself" "yourselves" "he" "him" "his" "himself" "she"  [19] "her" "hers" "herself" "it" "its" "itself" "they" "them" "their"     
@@ -120,6 +119,8 @@ We perform MapReduce on RC_2015-01.json, RC_2015-02.json and RC_2015-03.json and
 
 From the results, we found top 120 words from the three days are pretty much similiar. But when we slice 120-130 rows from the three days, things are a bit different. 
 
+```{r} 
+  
 > Jan_14 %>% slice(120:130)
           key value
 1        side 14422
@@ -159,7 +160,6 @@ From the results, we found top 120 words from the three days are pretty much sim
 9     players 10515
 10     called 10281
 11       hate 10280
-
-As we can see above, there are some frequently words are like "damn", "today", "single" on Valentines Day which are not in two other days. Seems like there might be more bachelors positng on reddit complaining about their singleness on Valentines Day.  
-
 ```
+As we can see above, there are some frequently words are like "damn", "today", "single" on Valentines Day which are not in two other days. Seems like there might be more bachelors positng on reddit complaining about their singleness on Valentines Day.  
+  
