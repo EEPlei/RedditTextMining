@@ -1,3 +1,18 @@
+---
+title: 'Homework 5 Duke Dinosaurs'
+author: "Lei Qian"
+date: "December 6, 2015"
+output: html_document
+---
+```{r}
+source("reddit_rhipe.R")
+source("utc_rhipe.R")
+source("task3_rhipe.R")
+
+```
+
+Task 1
+```{r}
 
 library(dplyr)
 library(magrittr)
@@ -35,4 +50,7 @@ billboard <- list(January = Jan[1:25,],
                   March = bb(Mar, Feb), 
                   April = bb(Apr, Mar),
                   May = bb(May, Apr))
+
+
+```
 
