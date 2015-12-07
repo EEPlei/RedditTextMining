@@ -57,7 +57,7 @@ For Task 1, we went through the months January, February, March, April, and May 
 ```{r}
 billboard[[1]]
 ```
-This will give us the top 25 subreddits in January. The 'key' column gives us the top 25 subreddit names and the 'value' column tells us how many comments belonged to these subreddits. 
+This will give us the top 25 subreddits in January. The 'key' column gives us the top 25 subreddit names and the 'value' column tells us how many comments belonged to these subreddits.         
 `             key   value`   
 `       AskReddit 4712795`   
 `             nfl  932460`   
@@ -88,6 +88,7 @@ The billboard for the other four months will look something like this.
 ```{r}
 billboard[[4]]
 ```
+          
 `         SubReddit Frequency %Change`   
 `         AskReddit   4158888   1.18%`   
 `   leagueoflegends    999977  -4.20%`   
