@@ -119,7 +119,9 @@ Out of all five months, April is the only month where one of the subreddits in t
 
 ##Task 2##
 ```{r}
-
+source("utc_rhipe.R")
+load("jan_utc.Rdata")
+load("jan_gild.Rdata")
 ```
 ##Task 3##
 For task 3, we need to find out what redditors are saying on Valentine's Day. To do that, we pick not only Feburary 14, but also January 14 and March 14 as control days. Basically the idea is still based on MapReduce method on Rhipe and Haddop. Similarly, we have wc_reduce, wc_map and MapReduce functions. But we need to filter out 1/14, 2/14 and 3/14 and perform word counting only for these three days. wc_reduce and MapReduce part are pretty much the same. wc_map part is as follows.
