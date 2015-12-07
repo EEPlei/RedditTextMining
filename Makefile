@@ -1,6 +1,6 @@
 all: hw_5.html
 
-hw2.html: hw_5.Rmd Jan.Rdata Feb.Rdata Mar.Rdata Apr.Rdata May.Rdata Jan_14.Rdata Feb_14.Rdata Mar_14.Rdata jan_gild.Rdata jan_utc.Rdata
+hw_5.html: hw_5.Rmd Jan.Rdata Feb.Rdata Mar.Rdata Apr.Rdata May.Rdata Jan_14.Rdata Feb_14.Rdata Mar_14.Rdata jan_gild.Rdata jan_utc.Rdata
 	Rscript -e "library(rmarkdown);render('hw5.Rmd')"
 
 Jan.Rdata: reddit_rhipe.R
