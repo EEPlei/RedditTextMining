@@ -122,7 +122,50 @@ Out of all five months, April is the only month where one of the subreddits in t
 source("utc_rhipe.R")
 load("jan_utc.Rdata")
 load("jan_gild.Rdata")
+jan_utc1 <- jan_utc[order(jan_utc$key),]
+plot(x = jan_utc1$key, y = jan_utc1$value)
+# plot from December 31, 2014 at 7 p.m. to January 31, 2015 at 6 p.m. # 
+# plots for every hour # 
+
+new.key <- as.POSIXct(jan_utc$key, origin = '1970-01-01')
+new.time <- sapply(new.key, str_extract, "[0-9][0-9]:")
+new.time <- as.numeric(sapply(new.time, str_extract, "[0-9][0-9]"))
+new.t <- new.time[-which(is.na(new.time))]
+new.df <- jan_utc[-which(is.na(new.time)),]
+new.df <- cbind(hour = new.t, new.df)
+new.df <- new.df[,-2]
+time.ind <- unique(new.t)[order(unique(new.t))]
+time.sum <- function(time.i){
+  new.sum <- sum(new.df[new.df$hour == time.i, ]$value)
+  return(new.sum)
+}
+time.new <- sapply(time.ind, time.sum)
+plot(x = time.ind, y = time.new)
+# plots out number of comments from 1:00 am to midnight #
+
+jan_gild1 <- jan_gilded[order(jan_gilded$key),]
+plot(x = jan_gild1$key, y = jan_gild1$value)
+# plot from December 31, 2014 at 7 p.m. to January 31, 2015 at 6 p.m. # 
+# plots for every hour # 
+
+
+new.key <- as.POSIXct(jan_gilded$key, origin = '1970-01-01')
+new.time <- sapply(new.key, str_extract, "[0-9][0-9]:")
+new.time <- as.numeric(sapply(new.time, str_extract, "[0-9][0-9]"))
+new.t <- new.time[-which(is.na(new.time))]
+new.df <- jan_gilded[-which(is.na(new.time)),]
+new.df <- cbind(hour = new.t, new.df)
+new.df <- new.df[,-2]
+time.ind <- unique(new.t)[order(unique(new.t))]
+time.sum <- function(time.i){
+  new.sum <- sum(new.df[new.df$hour == time.i, ]$value)
+  return(new.sum)
+}
+time.new <- sapply(time.ind, time.sum)
+plot(x = time.ind, y = time.new)
+# plots out number of comments from 1:00 am to midnight #
 ```
+It seems that in general, comments are lowest at 5 in the morning and highest at 3 pm. In fact, from 10 to midnight, comments are fairly high. It seems that most redditors are night-owls. This holds true even for gilded comments. 
 ##Task 3##
 For task 3, we need to find out what redditors are saying on Valentine's Day. To do that, we pick not only Feburary 14, but also January 14 and March 14 as control days. Basically the idea is still based on MapReduce method on Rhipe and Haddop. Similarly, we have wc_reduce, wc_map and MapReduce functions. But we need to filter out 1/14, 2/14 and 3/14 and perform word counting only for these three days. wc_reduce and MapReduce part are pretty much the same. wc_map part is as follows.
 ```{r}
