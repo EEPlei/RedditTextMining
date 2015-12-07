@@ -53,6 +53,69 @@ billboard <- list(January = Jan[1:25,],
 
 
 ```
+For Task 1, we went through the months January, February, March, April, and May to analyze the category subreddits. Our MapReduce, counted the number of times a comment belonged to a subreddit. We then, sorted out the top 25 most popular subreddits for each month and compared it to its ranking from the previous month. Since we do not have data for December, we are unable to calculate how any of the top 25 subreddits in January has changed in ranking. 
+```{r}
+billboard[[1]]
+```
+This will give us the top 25 subreddits in January. The 'key' column gives us the top 25 subreddit names and the 'value' column tells us how many comments belonged to these subreddits. 
+`             key   value`   
+`       AskReddit 4712795`   
+`             nfl  932460`   
+`           funny  930098`   
+` leagueoflegends  904297`   
+`            pics  778942`   
+`       worldnews  670872`   
+`   todayilearned  599295`   
+`  DestinyTheGame  587774`   
+`   AdviceAnimals  577463`   
+`          videos  570938`   
+`             nba  513906`   
+`    pcmasterrace  512582`   
+`            news  441657`   
+`   SquaredCircle  427546`   
+`             CFB  400464`   
+`          hockey  399466`   
+`             WTF  391393`   
+`          gaming  383858`   
+`          soccer  378902`   
+`           DotA2  374962`   
+`          movies  370386`   
+` GlobalOffensive  348153`   
+`   relationships  252429`   
+`            gifs  243083`   
+`           anime  239394`   
+The billboard for the other four months will look something like this. 
+```{r}
+billboard[[4]]
+```
+`         SubReddit Frequency %Change`   
+`         AskReddit   4158888   1.18%`   
+`   leagueoflegends    999977  -4.20%`   
+`             funny    755065  -7.60%`   
+`               nba    717799  42.65%`   
+`            hockey    672511  34.18%`   
+`              pics    660970  -6.49%`     
+`            videos    594071   7.85%`   
+`              news    569881  20.79%`   
+`         thebutton    520686     NA%`   
+`      pcmasterrace    517143  16.97%`   
+`     todayilearned    514287  -7.84%`   
+`         worldnews    496264 -13.04%`   
+`     AdviceAnimals    473058  -3.63%`   
+`            gaming    447396  17.16%`   
+`            soccer    417589  -5.82%`   
+`               nfl    405382 -38.26%`   
+`               WTF    397123  -3.90%`   
+`            movies    388167  20.38%`   
+`             DotA2    380744   1.68%`   
+`     SquaredCircle    366378 -32.06%`   
+`   GlobalOffensive    357393  14.15%`   
+`    DestinyTheGame    349363  -3.89%`   
+`            amiibo    297705  70.58%`   
+`     fatpeoplehate    292376   5.46%`   
+`CasualConversation    279950  41.84%`   
+
+Out of all five months, April is the only month where one of the subreddits in the top 25 does not exist for the previous month, which is March. We know this because the %Change column is NA%. We calculate this column by searching for the number of comments in a subreddit for a previous month which we will call X. The number of comments for a subreddit in the current month is Y. To find the percentage change we use this formula: (Y-X)/X. In the case of CasualConservation, there are 279950 posts in this subreddit category for April. It is a 41.84% increase in posts for this subreddit from March.   
 
 ##Task 2##
 ```{r}
@@ -102,19 +165,30 @@ library(tm)
   sw <- union(x,y)
 ```
 x contains 174 stop words. y contains 571 stop words. sw consists of x and y. The stop words are as follows.
+
 ```{r}
-> sw[1:30]
- [1] "i" "me" "my" "myself" "we" "our" "ours" "ourselves" "you"       
-[10] "your" "yours" "yourself" "yourselves" "he" "him" "his" "himself" "she"  [19] "her" "hers" "herself" "it" "its" 
-"itself" "they" "them" "their"     
-[28] "theirs" "themselves" "what"      
-> tail(sw)
- [1] "x" "y" "yes" "yet" "z" "zero"
-> sw[550:580]
- [1] "wants" "way" "welcome" "well" "went" "whatever" "whence" "whenever" "whereafter"
-[10] "whereas" "whereby" "wherein" "whereupon" "wherever" "whether" "whither" "whoever" "whole"     
-[19] "whose" "will" "willing" "wish" "within" "without" "wonder" "x" "y"      [28] "yes" "yet" "z" "zero"
+sw[1:30]
 ```
+
+`[1] "i" "me" "my" "myself" "we" "our" "ours" "ourselves" "you"`          
+`[10] "your" "yours" "yourself" "yourselves" "he" "him" "his" "himself" "she"`     
+`[19] "her" "hers" "herself" "it" "its" "itself" "they" "them" "their"`           
+`[28] "theirs" "themselves" "what"`         
+```{r}
+tail(sw)
+```
+
+`[1] "x" "y" "yes" "yet" "z" "zero"`    
+```{r}
+sw[550:580]   
+
+```
+
+`[1] "wants" "way" "welcome" "well" "went" "whatever" "whence" "whenever" "whereafter"` `[10] "whereas" "whereby" "wherein" "whereupon" "wherever" `    
+`"whether" "whither" "whoever" "whole"`    
+`[19] "whose" "will" "willing" "wish" "within" "without" "wonder" "x" "y" `         
+`[28]   "yes" "yet" "z" "zero"`   
+
 
 In the function inside lapply, we use as.POSIXct() function to transfer created_utc to normal date. Then use strsplit to extract the specific day of the date. Since we only perform this function on RC_2015-01.json, RC_2015-02.json and RC_2015-03.json, if the day is 14 then that is what we want. In the if clause, we only care about body, let line = tolower(fromJSON(map.values[[r]])$body). Then we strip things like punctuation and capitalization on line and use setdiff() to remove stop words we previously defined. Lastly, we use rhcollect to assign the value 1 to each 
 line.
@@ -123,48 +197,54 @@ We perform MapReduce on RC_2015-01.json, RC_2015-02.json and RC_2015-03.json and
 
 From the results, we found top 120 words from the three days are pretty much similiar. But when we slice 120-130 rows from the three days, things are a bit different. 
 
-```{r} 
-  
-> Jan_14 %>% slice(120:130)
-          key value
-1        side 14422
-2       video 14267
-3     working 14046
-4  completely 14010
-5        easy 13952
-6      reddit 13913
-7      system 13870
-8      couple 13744
-9        link 13709
-10 experience 13692
-11     friend 13577
-> Feb_14 %>% slice(120:130)
-       key value
-1       op 10520
-2   action 10499
-3  contact 10479
-4     home 10477
-5    worth 10451
-6    works 10417
-7    sense 10407
-8     damn 10348
-9    today 10208
-10  single 10152
-11   story 10071
-> Mar_14 %>% slice(120:130)
-          key value
-1       small 10807
-2          op 10798
-3       worth 10797
-4        half 10643
-5      school 10632
-6        home 10591
-7       story 10589
-8  completely 10561
-9     players 10515
-10     called 10281
-11       hate 10280
+```{r}
+load("Jan_14.Rdata")
+load("Feb_14.Rdata")
+load("Mar_14.Rdata")
 
 ```
+
+
+  
+`> Jan_14 %>% slice(120:130)`   
+`          key value`   
+`1        side 14422`   
+`2       video 14267`   
+`3     working 14046`   
+`4  completely 14010`   
+`5        easy 13952`   
+`6      reddit 13913`   
+`7      system 13870`   
+`8      couple 13744`   
+`9        link 13709`   
+`10 experience 13692`   
+`11     friend 13577`   
+`> Feb_14 %>% slice(120:130)`   
+`       key value`   
+`1       op 10520`   
+`2   action 10499`   
+`3  contact 10479`   
+`4     home 10477`   
+`5    worth 10451`   
+`6    works 10417`   
+`7    sense 10407`   
+`8     damn 10348`   
+`9    today 10208`   
+`10  single 10152`   
+`11   story 10071`   
+`> Mar_14 %>% slice(120:130)`   
+`          key value`   
+`1       small 10807`   
+`2          op 10798`   
+`3       worth 10797`   
+`4        half 10643`   
+`5      school 10632`   
+`6        home 10591`   
+`7       story 10589`   
+`8  completely 10561`   
+`9     players 10515`   
+`10     called 10281`   
+`11       hate 10280`   
+
 As we can see above, there are some frequently words are like "damn", "today", "single" on Valentines Day which are not in two other days. Seems like there might be more bachelors positng on reddit complaining about their singleness on Valentines Day.  
   
