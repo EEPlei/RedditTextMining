@@ -119,8 +119,55 @@ Out of all five months, April is the only month where one of the subreddits in t
 
 ##Task 2##
 For task 2, we needed to create plots that displayed the frequency of reddits that were aggregated to an hourly level. We first needed to aggregate the time that the comments were made. We approached this from a MapReduce methodology based on Rhipe and Hadoop. We first filtered for the utc time stamps. 
+```{r}
+  time_converter = function(time){
+    #below code gives me the numeric version of each utcs
+    newtime = lapply(time, as.numeric)
+    #below code applies as.POSIXct function to the newtime dataframe
+    stdtime = lapply(newtime, as.POSIXct,origin = '1970-01-01')
+    #below code replaces the minutes and seconds with 00:00 so its easy to aggregate
+    stacked_time = lapply(stdtime, str_replace,":[0-5][0-9]:[0-5][0-9]", ":00:00")
+    #below codes converts back the time to utc
 
+    back_to_utc = lapply(stacked_time, as.POSIXct)
+    converted_utc = sapply(back_to_utc, as.numeric)
+    
+    
+    return(converted_utc)
+  }
+```
+Specifically, this function converts the filtered UTC time stamp into a standard time format--year/month/date Hour:Minute:Second--s and replaces it so that it is aggregated on an hourly level. For example, if there is a UTC time stamp that reads `1421739942` then it is converted into a standard time that reads `2015-01-20 02:45:42 EST`. Then to aggregate to an hourly level, we replace the Minute:Second timekeys--which correspond to `45:42` in the previous example--to `00:00`. Thus the converted time stamp can be read as `2015-01-20 02:00:00 EST`. Then this time is transformed again into a UTC timestamp. 
 
+---talk about plots from here. 
+
+The 2nd part to task2 was running the same process for comments that were "gilded". For a non-reddit user, the concept of being "gilded" would be unfamiliar. Here is a simple analogy--gilded:reddit=likes:facebook. Thus, "gilded" to a reddit post is similar to a "like" on facebook. One twist to the plot is that if you are to "gild" a post, you would have to pay money to reddit. This twist makes "gilded" posts on reddit extremely rare, which is the reason that most of the "gilded" section in the short and long json files are 0. We used a function called "gold" that would specifically extract and count the gilded posts. 
+
+```{r}
+  gold <- lapply(
+    seq_along(map.keys), 
+    function(r) 
+    {
+      gilded = fromJSON(map.values[[r]])$gilded
+    }
+  ) 
+  gindex <- lapply(gold, as.numeric)
+  gindex <- which(gindex == 1)
+  map.keys <- map.keys[gindex]
+  lapply(
+    seq_along(map.keys), 
+    function(r) 
+    {
+      time = fromJSON(map.values[[r]])$created_utc
+      key = time_converter(time)
+      value = 1
+      lapply(key, rhcollect, value=1)
+    }
+  )
+```
+
+Through our "gold" function, we first define our mapvalues as "gilded", namely using "gilded" as the key. When we select the gilded parts from each line of the json file, we transformed the value as a numeric item and filtered for the values that were equal to 1. Thus, we were able to disregard comments that were ungilded and select only the gilded comments. After the filteration, we applied the time_converter function to aggregate the UTCs on an hourly level. 
+
+--talk about plots and results
 ```{r}
 source("utc_rhipe.R")
 load("jan_utc.Rdata")
