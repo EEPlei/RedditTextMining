@@ -118,6 +118,9 @@ billboard[[4]]
 Out of all five months, April is the only month where one of the subreddits in the top 25 does not exist for the previous month, which is March. We know this because the %Change column is NA%. We calculate this column by searching for the number of comments in a subreddit for a previous month which we will call X. The number of comments for a subreddit in the current month is Y. To find the percentage change we use this formula: (Y-X)/X. In the case of CasualConservation, there are 279950 posts in this subreddit category for April. It is a 41.84% increase in posts for this subreddit from March.   
 
 ##Task 2##
+For task 2, we needed to create plots that displayed the frequency of reddits that were aggregated to an hourly level. We first needed to aggregate the time that the comments were made. We approached this from a MapReduce methodology based on Rhipe and Hadoop. We first filtered for the utc time stamps. 
+
+
 ```{r}
 source("utc_rhipe.R")
 load("jan_utc.Rdata")
