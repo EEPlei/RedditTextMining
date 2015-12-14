@@ -53,7 +53,7 @@ billboard <- list(January = Jan[1:25,],
 
 
 ```
-For Task 1, we went through the months January, February, March, April, and May to analyze the category subreddits. Our MapReduce, counted the number of times a comment belonged to a subreddit. We then, sorted out the top 25 most popular subreddits for each month and compared it to its ranking from the previous month. Since we do not have data for December, we are unable to calculate how any of the top 25 subreddits in January has changed in ranking. 
+For Task 1, we went through the months January, February, March, April, and May to analyze the category subreddits. Our MapReduce, counted the number of times a comment belonged to a subreddit. We then, sorted out the top 25 most popular subreddits for each month and compared it to its ranking from the previous month. Since we do not have data for December, we are unable to calculate how many of the top 25 subreddits in January has changed in ranking. 
 ```{r}
 billboard[[1]]
 ```
@@ -139,9 +139,7 @@ For task 2, we needed to create plots that displayed the frequency of reddits th
 ```
 Specifically, this function converts the filtered UTC time stamp into a standard time format--year/month/date Hour:Minute:Second--s and replaces it so that it is aggregated on an hourly level. For example, if there is a UTC time stamp that reads `1421739942` then it is converted into a standard time that reads `2015-01-20 02:45:42 EST`. Then to aggregate to an hourly level, we replace the Minute:Second timekeys--which correspond to `45:42` in the previous example--to `00:00`. Thus the converted time stamp can be read as `2015-01-20 02:00:00 EST`. Then this time is transformed again into a UTC timestamp. 
 
----talk about plots from here. 
-
-The 2nd part to task2 was running the same process for comments that were "gilded". For a non-reddit user, the concept of being "gilded" would be unfamiliar. Here is a simple analogy--gilded:reddit=likes:facebook. Thus, "gilded" to a reddit post is similar to a "like" on facebook. One twist to the plot is that if you are to "gild" a post, you would have to pay money to reddit. This twist makes "gilded" posts on reddit extremely rare, which is the reason that most of the "gilded" section in the short and long json files are 0. We used a function called "gold" that would specifically extract and count the gilded posts. 
+The second part to task2 was running the same process for comments that were "gilded". For a non-reddit user, the concept of being "gilded" would be unfamiliar. Here is a simple analogy--gilded:reddit=likes:facebook. Thus, "gilded" to a reddit post is similar to a "like" on facebook. One twist to the plot is that if you are to "gild" a post, you would have to pay money to reddit. This twist makes "gilded" posts on reddit extremely rare, which is the reason that most of the "gilded" section in the short and long json files are 0. We used a function called "gold" that would specifically extract and count the gilded posts. 
 
 ```{r}
   gold <- lapply(
@@ -168,7 +166,6 @@ The 2nd part to task2 was running the same process for comments that were "gilde
 
 Through our "gold" function, we first define our mapvalues as "gilded", namely using "gilded" as the key. When we select the gilded parts from each line of the json file, we transformed the value as a numeric item and filtered for the values that were equal to 1. Thus, we were able to disregard comments that were ungilded and select only the gilded comments. After the filteration, we applied the time_converter function to aggregate the UTCs on an hourly level. 
 
---talk about plots and results
 ```{r}
 source("utc_rhipe.R")
 load("jan_utc.Rdata")
@@ -218,7 +215,7 @@ plot(x = time.ind, y = time.new)
 ```
 It seems that in general, comments are lowest at 5 in the morning and highest at 3 pm. In fact, from 10 to midnight, comments are fairly high. It seems that most redditors are night-owls. This holds true even for gilded comments. 
 ##Task 3##
-For task 3, we need to find out what redditors are saying on Valentine's Day. To do that, we pick not only Feburary 14, but also January 14 and March 14 as control days. Basically the idea is still based on MapReduce method on Rhipe and Haddop. Similarly, we have wc_reduce, wc_map and MapReduce functions. But we need to filter out 1/14, 2/14 and 3/14 and perform word counting only for these three days. wc_reduce and MapReduce part are pretty much the same. wc_map part is as follows.
+For task 3, we need to find out what redditors are saying on Valentine's Day. To do that, we pick not only Feburary 14, but also January 14 and March 14 as control days. Basically the idea is still based on MapReduce method on Rhipe and Hadoop. Similarly, we have wc_reduce, wc_map and MapReduce functions. But we need to filter out 1/14, 2/14 and 3/14 and perform word counting only for these three days. wc_reduce and MapReduce part are pretty much the same. wc_map part is as follows.
 ```{r}
 
 wc_map = expression({
