@@ -2,8 +2,11 @@
 ### Initialization of Rhipe and Hadoop
 
 
-install.packages("testthat")
-install.packages("rJava")
+#install.packages("testthat")
+#install.packages("rJava")
+
+library(testthat)
+library(rJava)
 
 Sys.setenv(HADOOP="/data/hadoop")
 Sys.setenv(HADOOP_HOME="/data/hadoop")
@@ -19,14 +22,15 @@ if (!("Rhipe" %in% installed.packages()))
 }
 
 
+library(Rhipe)
+rhinit()
+
 
 ## Uncomment following lines if you need non-base packages
 rhoptions(zips = '/R/R.Pkg.tar.gz')
 rhoptions(runner = 'sh ./R.Pkg/library/Rhipe/bin/RhipeMapReduce.sh')
 
 
-library(Rhipe)
-rhinit()
 
 ### put a file to HDFS so we can use it
 #rhput("/data/Shakespeare/hamlet.txt","/data/")
