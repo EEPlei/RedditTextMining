@@ -1,5 +1,3 @@
-install.packages("testthat")
-install.packages("rJava")
 
 Sys.setenv(HADOOP="/data/hadoop")
 Sys.setenv(HADOOP_HOME="/data/hadoop")

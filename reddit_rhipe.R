@@ -2,8 +2,8 @@
 ### Initialization of Rhipe and Hadoop
 
 
-#install.packages("testthat")
-#install.packages("rJava")
+install.packages("testthat")
+install.packages("rJava")
 
 library(testthat)
 library(rJava)
