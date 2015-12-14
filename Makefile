@@ -34,7 +34,6 @@ jan_utc.Rdata: utc_rhipe.R
 	R --no-save < utc_rhipe.R
 
 clean:
-	rm -rf data/
-	rm -f hw2.html
+	rm -f hw_5.html
 
 .PHONY: all clean
